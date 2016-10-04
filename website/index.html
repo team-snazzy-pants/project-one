@@ -56,7 +56,11 @@
       border-spacing: 0;
       }
 
-      body { font-family: 'Open Sans', sans-serif; padding: 0; margin: 0; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+        padding: 0;
+        margin: 0;
+      }
       nav { background: #262627; overflow: hidden; }
       nav ul li { list-style: none; }
       nav ul li a {
@@ -70,6 +74,7 @@
       nav ul li a:hover { color: #fff; }
       nav ul li a#logo { background: #00c4cc; }
       nav ul li a#logo i { color: #fff; }
+      div#content { padding: 0 40px 100px; }
       h1 {
         text-align: center;
         margin: 70px 0;
@@ -77,12 +82,31 @@
         font-weight: 300;
       }
       h3 {
-        margin: 30px 0 30px 20px;
+        margin: 80px 0 30px 20px;
+      }
+      p {
+        margin: 0 0 20px;
+        line-height: 1.5em;
+      }
+      #bizConstraints h4 {
+        margin: 10px 0 10px 20px;
+        font-weight: 700;
+      }
+      #bizConstraints ul {
+        margin-bottom: 20px;
+      }
+      #bizConstraints ul li {
+        margin: 0 0 0 60px;
+        list-style: disc;
+        line-height: 1.5;
       }
 
+
     </style>
+
   </head>
   <body>
+
     <nav>
       <ul>
         <li><a id="logo" href=""><i class="fa fa-database" aria-hidden="true"></i></a></li>
@@ -92,16 +116,76 @@
       </ul>
     </nav>
 
-    <h1>Team Snazzy Pants CS 4332 Project</h1>
+    <div id="content">
 
-    <h3 id="erDiagram-overview">ER Diagram - Overview</h3>
-    <img width="100%" src="images/erDiagram-overview.png">
+      <h1>Team Snazzy Pants CS 4332 Project</h1>
 
-    <h3 id="erDiagram-main">ER Diagram - Main</h3>
-    <img width="100%" src="images/erDiagram-main.png">
+      <h3 id="erDiagram-overview">ER Diagram - Overview</h3>
+      <img width="100%" src="images/erDiagram-overview.png">
 
-    <h3 id="relational">Relational Diagram</h3>
-    <img width="100%" src="images/relationalDiagram.png">
+      <h3 id="erDiagram-main">ER Diagram - Main</h3>
+      <img width="100%" src="images/erDiagram-main.png">
+
+      <h3 id="relational">Relational Diagram</h3>
+      <img width="100%" src="images/relationalDiagram.png">
+
+      <h3>Participation Constraints</h3>
+      <p>Property has a total relationship with Branch for the handles relationship because we assume that every property is handled by a branch.  Branch has a partial participation with Property for the handles relation because not all branches necessarily handle properties.
+  Client has total participation with Branch for the has relationship because we assume all clients have a home branch.  Branch has a partial participation with Client for the has relationship because a new or under construction branch may not have any clients.
+  Property has a total participation for the has relation because we assume all properties are owned by a client.  Client has partial participation between property for the has relationship because there can be clients who do not have a property.
+  Both StaffMember and Property have partial participation in the listedBy relationship because we assume there could be staff members who don't list properties (like a teller) and also properties that aren't currently listed (like a brand new property or a property under renovations).
+  There is total participation for StaffMembers in the worksAt relation because all staff members work at a branch.  There is partial participation for Branch in the worksAt relation because a branch could be new or under construction and not have any StaffMembers.</p>
+
+    <div id="bizConstraints">
+
+      <h3>Business Constraints</h3>
+
+      <h4>There is a finite number of employees</h4>
+      <ul><li>The business cannot afford to give every real estate agent in the world a job</li></ul>
+
+      <h4>There is a finite number of branches</h4>
+      <ul><li>Oversaturating any given location with branches would reduce the demand of any one branch</li></ul>
+
+      <h4>Email must be unique per Client/StaffMember (no shared accounts)</h4>
+      <ul><li>Email will be used as a unique identified for login and query purposes</li></ul>
+
+      <h4>A Client cannot exist without an email address</h4>
+      <ul><li>Email will be used as a unique identified for login and query purposes</li></ul>
+
+      <h4>A Branch cannot exist without a location</h4>
+      <ul><li>This particular business model operates with the branch as the central hub for all StaffMembers of the branch. Unlike a web-based business this branch cannot conduct business without a physical location.</li></ul>
+
+      <h4>A Property cannot exist without a location</h4>
+      <ul><li>When querying a buyer is required to select location. Properties cannot populate the query without this information.</li></ul>
+
+      <h4>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h4>
+      <ul><li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li></ul>
+
+      <h4>Clients can have more than one Property and property type</h4>
+      <ul><li>Clients can simultaneously be buying, selling or renting property at any given time</li></ul>
+
+      <h4>Branches can have more than one Property</h4>
+      <ul><li>Though somewhat obvious this is an assumption of the business practice</li></ul>
+
+      <h4>Properties can only have one branch</h4>
+      <ul><li>Though somewhat obvious this is an assumption of the business practice</li></ul>
+
+      <h4>Clients and StaffMembers MUST have one phone number but the database can accommodate multiple phone entries</h4>
+      <ul><li>Ex. Cell, Work and the elusive Home phone number</li></ul>
+
+      <h4>StaffMembers MUST have one address but the database can multiple addresses</h4>
+      <ul><li>Ex. Work and Home</li></ul>
+
+      <h3>Business Constraints not covered by Design</h3>
+      <h4>There is no relationship between StaffMember or Client</h4>
+      <ul>
+        <li>If a StaffMember is also a Client there is no mapping to indicate this relationship</li>
+        <li>Relationships only exist between Property and Client or Client and Listing Agent</li>
+      </ul>
+
+    </div> <!-- #bizConstraints -->
+
+  </div> <!-- #content -->
 
   </body>
 </html>
