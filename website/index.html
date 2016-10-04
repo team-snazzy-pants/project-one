@@ -113,6 +113,8 @@
         <li><a href="#erDiagram-overview">ER Overview</a></li>
         <li><a href="#erDiagram-main">ER Main</a></li>
         <li><a href="#relational">Relational Diagram</a></li>
+        <li><a href="#participationConstraints">Participation Constraints</a></li>
+        <li><a href="#bizConstraints">Business Constraints</a></li>
       </ul>
     </nav>
 
@@ -129,7 +131,7 @@
       <h3 id="relational">Relational Diagram</h3>
       <img width="100%" src="images/relationalDiagram.png">
 
-      <h3>Participation Constraints</h3>
+      <h3 id="participationConstraints">Participation Constraints</h3>
       <p>Property has a total relationship with Branch for the handles relationship because we assume that every property is handled by a branch.  Branch has a partial participation with Property for the handles relation because not all branches necessarily handle properties.
   Client has total participation with Branch for the has relationship because we assume all clients have a home branch.  Branch has a partial participation with Client for the has relationship because a new or under construction branch may not have any clients.
   Property has a total participation for the has relation because we assume all properties are owned by a client.  Client has partial participation between property for the has relationship because there can be clients who do not have a property.
