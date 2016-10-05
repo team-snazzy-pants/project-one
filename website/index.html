@@ -104,6 +104,8 @@
       #schemaItems p { margin: 0; }
       #schemaItems p strong { font-weight: bold; }
       #schemaItems p em { font-style: italic; }
+      #schemaItems h4 { margin: 20px 0 10px; }
+      #schemaItems ul li { margin: 5px 0; line-height: 1.3; }
 
 
     </style>
@@ -116,10 +118,11 @@
         <li><a id="logo" href=""><i class="fa fa-database" aria-hidden="true"></i></a></li>
         <li><a href="#erDiagram-overview">ER Overview</a></li>
         <li><a href="#erDiagram-main">ER Main</a></li>
-        <li><a href="#relationalDiagram">Relational Diagram</a></li>
-        <li><a href="#relationalSchema">Relational Schema</a></li>
         <li><a href="#participationConstraints">Participation Constraints</a></li>
         <li><a href="#bizConstraints">Business Constraints</a></li>
+        <li><a href="#relationalDiagram">Relational Diagram</a></li>
+        <li><a href="#relationalSchema">Relational Schema</a></li>
+        <li><a href="#workLog">Work Log</a></li>
       </ul>
     </nav>
 
@@ -132,22 +135,6 @@
 
       <h3 id="erDiagram-main">ER Diagram - Main</h3>
       <img width="100%" src="images/erDiagram-main.png">
-
-      <h3 id="relationalDiagram">Relational Diagram</h3>
-      <img width="100%" src="images/relationalDiagram.png">
-
-      <h3 id="relationalSchema">Relational Schema</h3>
-      <div id="schemaItems">
-        <p>StaffMember(<strong>StaffId</strong>, Name, Email, Phone, Address, AgentType)</p>
-        <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-        <p>Property(<strong>propertyId</strong>, listingDate, propertyType, listingType, listingPrice, numBedrooms, squareFootage, adDate, adCost, adPublication, inspectionDate, zipCode, city, street)</p>
-        <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-        <p>client(<strong>clientId</strong>, phone, address, name, email, ownerType, rentalContract, location, amenities, maxPrice, minPrice)</p>
-        <p>banksWith(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
-        <p>branch(<strong>branch</strong>, location)</p>
-        <p>handles(<strong><em>branchId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-
-      </div>
 
       <h3 id="participationConstraints">Participation Constraints</h3>
       <p>Property has a total relationship with Branch for the handles relationship because we assume that every property is handled by a branch.  Branch has a partial participation with Property for the handles relation because not all branches necessarily handle properties.
@@ -204,6 +191,68 @@
       </ul>
 
     </div> <!-- #bizConstraints -->
+
+      <h3 id="relationalDiagram">Relational Diagram</h3>
+      <img width="100%" src="images/relationalDiagram.png">
+
+      <h3 id="relationalSchema">Relational Schema</h3>
+      <div id="schemaItems">
+        <p>StaffMember(<strong>StaffId</strong>, Name, Email, Phone, Address, AgentType)</p>
+        <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
+        <p>Property(<strong>propertyId</strong>, listingDate, propertyType, listingType, listingPrice, numBedrooms, squareFootage, adDate, adCost, adPublication, inspectionDate, zipCode, city, street)</p>
+        <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
+        <p>client(<strong>clientId</strong>, phone, address, name, email, ownerType, rentalContract, location, amenities, maxPrice, minPrice)</p>
+        <p>banksWith(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
+        <p>branch(<strong>branch</strong>, location)</p>
+        <p>handles(<strong><em>branchId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
+
+        <h4>StaffMember Types:</h4>
+        <ul>
+          <li>String StaffId // first character is letter 's' (for staff), rest of characters are numbers (ten characters)</li>
+          <li>String name    // typically < 100 chars</li>
+          <li>String Email   // typically < 50 chars</li>
+          <li>String Phone   // ten characters</li>
+          <li>String Address // typically < 100 chars</li>
+          <li>Char AgentType // 1 character: 's' for sellingAgent, 'l' for listingAgent</li>
+        </ul>
+
+        <h4>ListedBy Types:</h4>
+        <ul>
+          <li>String StaffId    // refers to primary key in StaffMember</li>
+          <li>String PropertyId // refers to primary key in Property</li>
+        </ul>
+
+        <h4>Property Types:</h4>
+        <ul>
+          <li>String propertyId  // first character is letter 'p' (for property), rest of characters are numbers (ten characters)</li>
+          <li>Date listingDate</li>
+          <li>  propertyType // </li>
+          <li>  listingType // </li>
+          <li>  listingPrice // </li>
+          <li>  numBedrooms // </li>
+          <li>  numBathrooms // </li>
+          <li>  squareFootage //</li>
+          <li>  adDate //</li>
+          <li>  adPublication //</li>
+          <li>  inspectionDate //</li>
+          <li>  zipCode //</li>
+          <li>  city //</li>
+          <li></li>
+        </ul>
+
+      </div> <!-- #schemaItems -->
+
+    <h3 id="workLog">Work Log</h3>
+    <table>
+      <tr><td>Date</td><td>Participants</td><td>Time</td><td>Activity</td></tr>
+      <tr><td>10/5/2016   <td>Adriana, Mark, Woodrow    <td>2 - 4:30pm       Relational diagram and relational schema
+      <tr>10/3/2016   Adriana, Mark, Woodrow    2 - 4:30pm       Adriana and Woodrow looked at various
+     realty websites for ways to expand While Mark began Relational Diagram. List of Constraints and List of Functions
+     9/28/2016   Adriana, Mark, Woodrow    2 - 4:30pm       Refined ER diagram and put ER diagram
+into Draw.io google tool sent an email to Professor asking for instructions
+9/14/2016   Adriana, Mark, Woodrow    2 - 4:30pm       Initial design of ER diagram
+
+    </table>
 
   </div> <!-- #content -->
 
