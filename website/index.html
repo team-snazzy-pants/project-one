@@ -101,6 +101,9 @@
         list-style: disc;
         line-height: 1.5;
       }
+      #schemaItems p { margin: 0; }
+      #schemaItems p strong { font-weight: bold; }
+      #schemaItems p em { font-style: italic; }
 
 
     </style>
@@ -113,7 +116,8 @@
         <li><a id="logo" href=""><i class="fa fa-database" aria-hidden="true"></i></a></li>
         <li><a href="#erDiagram-overview">ER Overview</a></li>
         <li><a href="#erDiagram-main">ER Main</a></li>
-        <li><a href="#relational">Relational Diagram</a></li>
+        <li><a href="#relationalDiagram">Relational Diagram</a></li>
+        <li><a href="#relationalSchema">Relational Schema</a></li>
         <li><a href="#participationConstraints">Participation Constraints</a></li>
         <li><a href="#bizConstraints">Business Constraints</a></li>
       </ul>
@@ -129,8 +133,21 @@
       <h3 id="erDiagram-main">ER Diagram - Main</h3>
       <img width="100%" src="images/erDiagram-main.png">
 
-      <h3 id="relational">Relational Diagram</h3>
+      <h3 id="relationalDiagram">Relational Diagram</h3>
       <img width="100%" src="images/relationalDiagram.png">
+
+      <h3 id="relationalSchema">Relational Schema</h3>
+      <div id="schemaItems">
+        <p>StaffMember(<strong>StaffId</strong>, Name, Email, Phone, Address, AgentType)</p>
+        <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
+        <p>Property(<strong>propertyId</strong>, listingDate, propertyType, listingType, listingPrice, numBedrooms, squareFootage, adDate, adCost, adPublication, inspectionDate, zipCode, city, street)</p>
+        <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
+        <p>client(<strong>clientId</strong>, phone, address, name, email, ownerType, rentalContract, location, amenities, maxPrice, minPrice)</p>
+        <p>banksWith(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
+        <p>branch(<strong>branch</strong>, location)</p>
+        <p>handles(<strong><em>branchId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
+
+      </div>
 
       <h3 id="participationConstraints">Participation Constraints</h3>
       <p>Property has a total relationship with Branch for the handles relationship because we assume that every property is handled by a branch.  Branch has a partial participation with Property for the handles relation because not all branches necessarily handle properties.
