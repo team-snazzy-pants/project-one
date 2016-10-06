@@ -184,19 +184,19 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>Property Types:</h4>
           <tr><td>String propertyId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>Date listingDate</td><td></td></tr>
-          <tr><td>String propertyType</td><td></td></tr>
-          <tr><td>Double listingPrice</td><td></td></tr>
-          <tr><td>String listingType</td><td></td></tr>
-          <tr><td>Int numBedrooms</td><td></td></tr>
-          <tr><td>Int numBathrooms</td><td></td></tr>
-          <tr><td>Int squareFootage</td><td></td></tr>
-          <tr><td>Date adDate</td><td></td></tr>
-          <tr><td>String adPublication</td><td></td></tr>
-          <tr><td>Date inspectionDate</td><td></td></tr>
-          <tr><td>Int zipCode</td><td></td></tr>
-          <tr><td>String city</td><td></td></tr>
-          <tr><td>String street</td><td></td></tr>
+          <tr><td>Date listingDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominum, Commercial}</td></tr>
+          <tr><td>Double listingPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
+          <tr><td>String listingType</td><td>set list {sale, rent}</td></tr>
+          <tr><td>Int numBedrooms</td><td>integer representing number of bedrooms on property; typically < 10</td></tr>
+          <tr><td>Int numBathrooms</td><td>integer representing number of bedrooms on property; typically < 5</td></tr>
+          <tr><td>Int squareFootage</td><td>integer representing square footage of property; typically > 1000</td></tr>
+          <tr><td>Date adDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>String adPublication</td><td>publication name; website title, magazine name, print media, etc; length will vary; max size = 100 chars</td></tr>
+          <tr><td>Date inspectionDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
+          <tr><td>String city</td><td>40 chars max</td></tr>
+          <tr><td>String street</td><td>40 chars max</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
@@ -253,31 +253,32 @@
           </tr>
         </thead>
         <tr>
-          <td>10/5/2016</td>
+          <td>9/14/2016</td>
           <td>Adriana<br />Mark<br />Woodrow</td>
           <td>2:00pm</td>
           <td>4:30pm</td>
-          <td>Relational diagram and relational schema. We finalized the website and prepped for our presenation.</td>
-        <tr>
-          <td>10/3/2016</td>
-          <td>Adriana<br />Mark<br />Woodrow</td>
-          <td>2:00pm</td>
-          <td>4:30pm</td>
-          <td>Adriana and Woodrow looked at various realty websites for ways to expand. Mark began building the relational diagram. As a team we developed a list of business constraints and functions.</td>
+          <td>Initial meeting.<br />We sketched out a design of our ER diagram on a white board (<a href="draft.html">click to view</a>).<br />We took pictures and began researching tools to use to build out diagram.</td>
         </tr>
         <tr>
           <td>9/28/2016</td>
           <td>Adriana<br />Mark<br />Woodrow</td>
           <td>2:00pm</td>
           <td>4:30pm</td>
-          <td>Refined ER diagram and put ER diagram into Draw.io (google tool) and sent an email to Professor asking for clarification.</td>
+          <td>Using photos from previous meeting we refined our ER diagram.<br />We began drafting our ER diagram using Draw.io (Google tool).<br />We sent an email to Professor asking for clarification before proceeding further.</td>
         </tr>
         <tr>
-          <td>9/14/2016</td>
+          <td>10/3/2016</td>
           <td>Adriana<br />Mark<br />Woodrow</td>
           <td>2:00pm</td>
           <td>4:30pm</td>
-          <td>Initial design of ER diagram</td>
+          <td>Adriana and Woodrow looked at zillow.com to research futher business contraints and evaluate how a working realty database works.<br />Mark began building the relational diagram and drafted the presentation website.<br />As a team we developed a finalized list of business constraints and functions.</td>
+        </tr>
+        <tr>
+          <td>10/5/2016</td>
+          <td>Adriana<br />Mark<br />Woodrow</td>
+          <td>2:00pm</td>
+          <td>11:30pm</td>
+          <td>Mark completed the relational diagram and relational schema.<br />Adriana refactored the website layout/style.<br />Woodrow and Adriana completed the relational schema types tables.</td>
         </tr>
       </table>
     </div>
