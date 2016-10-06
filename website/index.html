@@ -176,7 +176,7 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>ListedBy Types:</h4>
+          <h4>listedBy Types:</h4>
           <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
           <tr><td>String PropertyId</td><td>refers to primary key in Property</td></tr>
         </table>
@@ -185,34 +185,57 @@
           <h4>Property Types:</h4>
           <tr><td>String propertyId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Date listingDate</td><td></td></tr>
-          <tr><td>propertyType</td><td></td></tr>
-          <tr><td>listingPrice</td><td></td></tr>
-          <tr><td>listingType</td><td></td></tr>
-          <tr><td>numBedrooms</td><td></td></tr>
-          <tr><td>numBathrooms</td><td></td></tr>
-          <tr><td>squareFootage</td><td></td></tr>
-          <tr><td>adDate</td><td></td></tr>
-          <tr><td>adPublication</td><td></td></tr>
-          <tr><td>inspectionDate</td><td></td></tr>
-          <tr><td>zipCode</td><td></td></tr>
-          <tr><td>city</td><td></td></tr>
+          <tr><td>String propertyType</td><td></td></tr>
+          <tr><td>Double listingPrice</td><td></td></tr>
+          <tr><td>String listingType</td><td></td></tr>
+          <tr><td>Int numBedrooms</td><td></td></tr>
+          <tr><td>Int numBathrooms</td><td></td></tr>
+          <tr><td>Int squareFootage</td><td></td></tr>
+          <tr><td>Date adDate</td><td></td></tr>
+          <tr><td>String adPublication</td><td></td></tr>
+          <tr><td>Date inspectionDate</td><td></td></tr>
+          <tr><td>Int zipCode</td><td></td></tr>
+          <tr><td>String city</td><td></td></tr>
+          <tr><td>String street</td><td></td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>Client Types:</h4>
+          <h4>owns Types:</h4>
+          <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
+          <tr><td>String PropertyId</td><td>refers to primary key in Property</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>client Types:</h4>
           <tr><td>String clientId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>Date listingDate</td><td></td></tr>
-          <tr><td>propertyType</td><td></td></tr>
-          <tr><td>listingPrice</td><td></td></tr>
-          <tr><td>listingType</td><td></td></tr>
-          <tr><td>numBedrooms</td><td></td></tr>
-          <tr><td>numBathrooms</td><td></td></tr>
-          <tr><td>squareFootage</td><td></td></tr>
-          <tr><td>adDate</td><td></td></tr>
-          <tr><td>adPublication</td><td></td></tr>
-          <tr><td>inspectionDate</td><td></td></tr>
-          <tr><td>zipCode</td><td></td></tr>
-          <tr><td>city</td><td></td></tr>
+          <tr><td>phone</td><td></td></tr>
+          <tr><td>address</td><td></td></tr>
+          <tr><td>name</td><td></td></tr>
+          <tr><td>email</td><td></td></tr>
+          <tr><td>ownerType</td><td></td></tr>
+          <tr><td>rentalContract</td><td></td></tr>
+          <tr><td>location</td><td></td></tr>
+          <tr><td>amenities</td><td></td></tr>
+          <tr><td>maxPrice</td><td></td></tr>
+          <tr><td>minPrice</td><td></td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>banksWith Types:</h4>
+          <tr><td>String clientId</td><td>refers to primary key in client</td></tr>
+          <tr><td>String branchId</td><td>refers to primary key in branch</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>branch Types:</h4>
+          <tr><td>String branchId</td><td>first character is letter 'b' (for branch), rest of characters are numbers (ten characters)</td></tr>
+          <tr><td>String location</td><td>defines region in which branch is located</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>handles Types:</h4>
+          <tr><td>String branchId</td><td>refers to primary key in branch</td></tr>
+          <tr><td>String PropertyId</td><td>refers to primary key in Property</td></tr>
         </table>
       </div>
     </div>
