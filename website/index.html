@@ -1,150 +1,104 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Team Snazzy Pants</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet">
     <script src="https://use.fontawesome.com/12074ac33e.js"></script>
-    <style>
-
-      /* http://meyerweb.com/eric/tools/css/reset/
-       v2.0 | 20110126
-       License: none (public domain)
-      */
-
-      html, body, div, span, applet, object, iframe,
-      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-      a, abbr, acronym, address, big, cite, code,
-      del, dfn, em, img, ins, kbd, q, s, samp,
-      small, strike, strong, sub, sup, tt, var,
-      b, u, i, center,
-      dl, dt, dd, ol, ul, li,
-      fieldset, form, label, legend,
-      table, caption, tbody, tfoot, thead, tr, th, td,
-      article, aside, canvas, details, embed,
-      figure, figcaption, footer, header, hgroup,
-      menu, nav, output, ruby, section, summary,
-      time, mark, audio, video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font: inherit;
-      vertical-align: baseline;
-      }
-      /* HTML5 display-role reset for older browsers */
-      article, aside, details, figcaption, figure,
-      footer, header, hgroup, menu, nav, section {
-      display: block;
-      }
-      body {
-      line-height: 1;
-      }
-      ol, ul {
-      list-style: none;
-      }
-      blockquote, q {
-      quotes: none;
-      }
-      blockquote:before, blockquote:after,
-      q:before, q:after {
-      content: '';
-      content: none;
-      }
-      table {
-      border-collapse: collapse;
-      border-spacing: 0;
-      }
-
-      body {
-        font-family: 'Open Sans', sans-serif;
-        padding: 0;
-        margin: 0;
-      }
-      nav { background: #262627; overflow: hidden; }
-      nav ul li { list-style: none; }
-      nav ul li a {
-        color: #ccc;
-        text-decoration: none;
-        padding: 20px;
-        float: left;
-        font-family: 'Georgia';
-        font-size: .8em;
-      }
-      nav ul li a:hover { color: #fff; }
-      nav ul li a#logo { background: #00c4cc; }
-      nav ul li a#logo i { color: #fff; }
-      div#content { padding: 0 40px 100px; }
-      h1 {
-        text-align: center;
-        margin: 70px 0;
-        font-size: 1.5em;
-        font-weight: 300;
-      }
-      h3 {
-        margin: 80px 0 30px 20px;
-      }
-      p {
-        margin: 0 0 20px;
-        line-height: 1.5em;
-      }
-      #bizConstraints h4 {
-        margin: 10px 0 10px 20px;
-        font-weight: 700;
-        line-height: 1.5;
-      }
-      #bizConstraints ul {
-        margin-bottom: 20px;
-      }
-      #bizConstraints ul li {
-        margin: 0 0 0 60px;
-        list-style: disc;
-        line-height: 1.5;
-      }
-      #schemaItems p { margin: 0; }
-      #schemaItems p strong { font-weight: bold; }
-      #schemaItems p em { font-style: italic; }
-      #schemaItems h4 { margin: 20px 0 10px; }
-      #schemaItems ul li { margin: 5px 0; line-height: 1.3; }
-
-
-    </style>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
 
-    <nav>
-      <ul>
-        <li><a id="logo" href=""><i class="fa fa-database" aria-hidden="true"></i></a></li>
-        <li><a href="#erDiagram-overview">ER Overview</a></li>
-        <li><a href="#erDiagram-main">ER Main</a></li>
-        <li><a href="#participationConstraints">Participation Constraints</a></li>
-        <li><a href="#bizConstraints">Business Constraints</a></li>
-        <li><a href="#relationalDiagram">Relational Diagram</a></li>
-        <li><a href="#relationalSchema">Relational Schema</a></li>
-        <li><a href="#workLog">Work Log</a></li>
-      </ul>
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <div id="project-info" class="container-fluid">
+      <h1>Team Snazzy Pants CS 4332 Project</h1>
+      <p>
+        Team Members:
+        <ul>
+          <li>Mark McDermott</li>
+          <li>Woodrow Bogucki</li>
+          <li>Adriana Rios</li>
+        </ul>
+      </p>
+    </div>
+
+    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a id="logo" class="navbar-brand" href="#"><i class="fa fa-database" aria-hidden="true"></i> Team Snazzy Pants</a>
+        </div>
+        <div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">ER Diagram <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#erDiagram-main">ER Main Diagram</a></li>
+                  <li><a href="#erDiagram-overview">ER Entity & Relationship Overview</a></li>
+                  <li><a href="#entity-branch">Branch Entity</a></li>
+                  <li><a href="#entity-staffmember">StaffMember Entity</a></li>
+                  <li><a href="#entity-property">Property Entity</a></li>
+                  <li><a href="#entity-client">Client Entity</a></li>
+                </ul>
+              </li>
+              <li><a href="#participationConstraints">Participation Constraints</a></li>
+              <li><a href="#bizConstraints">Business Constraints</a></li>
+              <li><a href="#relationalDiagram">Relational Diagram</a></li>
+              <li><a href="#relationalSchema">Relational Schema</a></li>
+              <li><a href="#workLog">Work Log</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </nav>
 
-    <div id="content">
+    <div id="erDiagram-main" class="container-fluid db-section">
+      <h3>ER Diagram - Main</h3>
+      <img src="images/erDiagram-main.png">
+    </div>
 
-      <h1>Team Snazzy Pants CS 4332 Project</h1>
+    <div id="erDiagram-overview" class="container-fluid db-section">
+      <h3>ER Diagram - ER Entity & Relationship Overview</h3>
+      <img src="images/erDiagram-overview.png">
+    </div>
 
-      <h3 id="erDiagram-overview">ER Diagram - Overview</h3>
-      <img width="100%" src="images/erDiagram-overview.png">
+    <div id="entity-branch" class="container-fluid db-section">
+      <h3>ER Diagram - Branch Entity</h3>
+      <img src="images/entity_Branch.png">
+    </div>
 
-      <h3 id="erDiagram-main">ER Diagram - Main</h3>
-      <img width="100%" src="images/erDiagram-main.png">
+    <div id="entity-staffmember" class="container-fluid db-section">
+      <h3>ER Diagram - StaffMember Entity</h3>
+      <img src="images/entity_StaffMember.png">
+    </div>
 
-      <h3 id="participationConstraints">Participation Constraints</h3>
+    <div id="entity-property" class="container-fluid db-section">
+      <h3>ER Diagram - Property Entity</h3>
+      <img src="images/entity_Property.png">
+    </div>
+
+    <div id="entity-client" class="container-fluid db-section">
+      <h3>ER Diagram - Branch Client</h3>
+      <img src="images/entity_Client.png">
+    </div>
+
+    <div id="participationConstraints" class="container-fluid db-section">
+      <h3>Participation Constraints</h3>
       <p>Property has a total relationship with Branch for the handles relationship because we assume that every property is handled by a branch.  Branch has a partial participation with Property for the handles relation because not all branches necessarily handle properties.
   Client has total participation with Branch for the has relationship because we assume all clients have a home branch.  Branch has a partial participation with Client for the has relationship because a new or under construction branch may not have any clients.
   Property has a total participation for the has relation because we assume all properties are owned by a client.  Client has partial participation between property for the has relationship because there can be clients who do not have a property.
   Both StaffMember and Property have partial participation in the listedBy relationship because we assume there could be staff members who don't list properties (like a teller) and also properties that aren't currently listed (like a brand new property or a property under renovations).
   There is total participation for StaffMembers in the worksAt relation because all staff members work at a branch.  There is partial participation for Branch in the worksAt relation because a branch could be new or under construction and not have any StaffMembers.</p>
+    </div>
 
-    <div id="bizConstraints">
-
+    <div id="bizConstraints" class="container-fluid db-section">
       <h3>Business Constraints</h3>
 
       <h4>There is a finite number of employees</h4>
@@ -189,13 +143,15 @@
         <li>If a StaffMember is also a Client there is no mapping to indicate this relationship</li>
         <li>Relationships only exist between Property and Client or Client and Listing Agent</li>
       </ul>
+    </div>
 
-    </div> <!-- #bizConstraints -->
+    <div id="relationalDiagram" class="container-fluid db-section">
+      <h3>Relational Diagram</h3>
+      <img src="images/relationalDiagram.png">
+    </div>
 
-      <h3 id="relationalDiagram">Relational Diagram</h3>
-      <img width="100%" src="images/relationalDiagram.png">
-
-      <h3 id="relationalSchema">Relational Schema</h3>
+    <div id="relationalSchema" class="container-fluid db-section">
+      <h3>Relational Schema</h3>
       <div id="schemaItems">
         <p>StaffMember(<strong>StaffId</strong>, Name, Email, Phone, Address, AgentType)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
@@ -239,22 +195,50 @@
           <li>  city //</li>
           <li></li>
         </ul>
+      </div>
+    </div>
 
-      </div> <!-- #schemaItems -->
-
-    <h3 id="workLog">Work Log</h3>
-    <table>
-      <tr><td>Date</td><td>Participants</td><td>Time</td><td>Activity</td></tr>
-      <tr><td>10/5/2016   <td>Adriana, Mark, Woodrow    <td>2 - 4:30pm       Relational diagram and relational schema
-      <tr>10/3/2016   Adriana, Mark, Woodrow    2 - 4:30pm       Adriana and Woodrow looked at various
-     realty websites for ways to expand While Mark began Relational Diagram. List of Constraints and List of Functions
-     9/28/2016   Adriana, Mark, Woodrow    2 - 4:30pm       Refined ER diagram and put ER diagram
-into Draw.io google tool sent an email to Professor asking for instructions
-9/14/2016   Adriana, Mark, Woodrow    2 - 4:30pm       Initial design of ER diagram
-
-    </table>
-
-  </div> <!-- #content -->
+    <div id="workLog" class="container-fluid db-section">
+      <h3>Work Log</h3>
+      <table class="table table-responsive table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Participants</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Activity</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>10/5/2016</td>
+          <td>Adriana<br />Mark<br />Woodrow</td>
+          <td>2:00pm</td>
+          <td>4:30pm</td>
+          <td>Relational diagram and relational schema. We finalized the website and prepped for our presenation.</td>
+        <tr>
+          <td>10/3/2016</td>
+          <td>Adriana<br />Mark<br />Woodrow</td>
+          <td>2:00pm</td>
+          <td>4:30pm</td>
+          <td>Adriana and Woodrow looked at various realty websites for ways to expand. Mark began building the relational diagram. As a team we developed a list of business constraints and functions.</td>
+        </tr>
+        <tr>
+          <td>9/28/2016</td>
+          <td>Adriana<br />Mark<br />Woodrow</td>
+          <td>2:00pm</td>
+          <td>4:30pm</td>
+          <td>Refined ER diagram and put ER diagram into Draw.io (google tool) and sent an email to Professor asking for clarification.</td>
+        </tr>
+        <tr>
+          <td>9/14/2016</td>
+          <td>Adriana<br />Mark<br />Woodrow</td>
+          <td>2:00pm</td>
+          <td>4:30pm</td>
+          <td>Initial design of ER diagram</td>
+        </tr>
+      </table>
+    </div>
 
   </body>
 </html>

@@ -1,0 +1,58 @@
+body {
+    position: relative;
+}
+.affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+.navbar {
+    margin-bottom: 0px;
+    border-radius:0;
+}
+
+.affix ~ .container-fluid {
+   position: relative;
+   top: 50px;
+}
+
+#project-info ul{
+  list-style-type: none;
+}
+
+.db-section {
+  padding-top:50px;
+}
+
+img {
+  width: 65%;
+}
+
+#bizConstraints h4 {
+  margin: 10px 0 10px 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+#bizConstraints ul {
+  margin-bottom: 20px;
+}
+#bizConstraints ul li {
+  margin: 0 0 0 60px;
+  list-style: disc;
+  line-height: 1.5;
+}
+#schemaItems p {
+  margin: 0;
+}
+#schemaItems p strong {
+  font-weight: bold;
+}
+#schemaItems p em {
+  font-style: italic;
+}
+#schemaItems h4 {
+  margin: 20px 0 10px;
+}
+#schemaItems ul li {
+  margin: 5px 0; line-height: 1.3;
+}
