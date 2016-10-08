@@ -63,9 +63,45 @@
 
     <div id="research" class="container-fluid">
       <h3>Research</h3>
-      <img src="images/zillow-price-range.png">
-      <img src="images/zillow-property-types.png">
-      <img src="images/zillow-rating.png">
+      <p>
+        Our business model is based on <a href="http://www.zillow.com/">zillow.com</a>. Below are some strategic decisions we made based on our research.
+      </p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="images/zillow-price-range.png">
+          </div>
+            <div class="col-md-6 textbox">
+              <p>
+                We grappled with how to display price range. We debated having a single field for max price.
+                Not many people distiguish a min price range but after reviewing our research we opted to use
+                a min and max.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="images/zillow-property-types.png">
+          </div>
+          <div class="col-md-6 textbox">
+            <p>
+              We adjusted our property types to match those of our research, eliminating commercial property.
+              Our focus is entirely on residential properties.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="images/zillow-rating.png">
+          </div>
+          <div class="col-md-6 textbox">
+            <p>
+              We added a rating attribute to the StaffMember entity. This will serve as a query parameter for clients seeking an agent.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="erDiagram-main" class="container-fluid db-section">
@@ -196,7 +232,7 @@
           <h4>Property Types:</h4>
           <tr><td>String propertyId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Date listingDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
-          <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominum, Commercial}</td></tr>
+          <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominum, Townhomes, Manufactured, Lots}</td></tr>
           <tr><td>Double listingPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
           <tr><td>String listingType</td><td>set list {sale, rent}</td></tr>
           <tr><td>Int numBedrooms</td><td>integer representing number of bedrooms on property; typically < 10</td></tr>

@@ -56,6 +56,21 @@ img {
   width: 65%;
 }
 
+#research img {
+  width: 45%;
+  display: block;
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+.textbox {
+  padding-top: 10%;
+}
+
+.textbox p {
+  max-width: 500px;
+}
+
 .drafts img {
   margin-top: 15px;
   border-radius: 5px;
