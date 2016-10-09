@@ -48,8 +48,8 @@
               <ul class="nav navbar-nav">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Constraints <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#participationConstraints">Participation Constraints</a></li>
                     <li><a href="#bizConstraints">Business Constraints</a></li>
+                    <li><a href="#participationConstraints">Participation Constraints</a></li>
                   </ul>
               </ul>
               <li><a href="#relationalDiagram">Relational Diagram</a></li>
@@ -72,11 +72,11 @@
             <img src="images/zillow-price-range.png">
           </div>
             <div class="col-md-6 textbox">
-              <p>
+              <h4>
                 We grappled with how to display price range. We debated having a single field for max price.
                 Not many people distiguish a min price range but after reviewing our research we opted to use
                 a min and max.
-              </p>
+              </h4>
             </div>
           </div>
         </div>
@@ -85,10 +85,10 @@
             <img src="images/zillow-property-types.png">
           </div>
           <div class="col-md-6 textbox">
-            <p>
+            <h4>
               We adjusted our property types to match those of our research, eliminating commercial property.
               Our focus is entirely on residential properties.
-            </p>
+            </h4>
           </div>
         </div>
         <div class="row">
@@ -96,42 +96,150 @@
             <img src="images/zillow-rating.png">
           </div>
           <div class="col-md-6 textbox">
-            <p>
+            <h4>
               We added a rating attribute to the StaffMember entity. This will serve as a query parameter for clients seeking an agent.
-            </p>
+            </h54
           </div>
         </div>
       </div>
     </div>
 
-    <div id="erDiagram-main" class="container-fluid db-section">
-      <h3>ER Diagram - Main</h3>
-      <a href="images/erDiagram-main.png"><img src="images/erDiagram-main.png"></a>
+    <div class="row container-fluid db-section">
+      <div class="col-md-12">
+        <h3>ER Diagram - Main</h3>
+        <a href="images/erDiagram-main.png"><img src="images/erDiagram-main.png"></a>
+      </div>
     </div>
 
-    <div id="erDiagram-overview" class="container-fluid db-section">
-      <h3>ER Diagram - ER Entity & Relationship Overview</h3>
-      <a href="images/erDiagram-overview.png"><img src="images/erDiagram-overview.png"></a>
+    <div class="row container-fluid db-section">
+      <div class="col-md-12">
+        <h3>ER Diagram - ER Entity & Relationship Overview</h3>
+        <a href="images/erDiagram-overview.png"><img src="images/erDiagram-overview.png"></a>
+      </div>
     </div>
 
-    <div id="entity-branch" class="container-fluid db-section">
-      <h3>ER Diagram - Branch Entity</h3>
-      <a href="images/entity_Branch.png"><img src="images/entity_Branch.png"></a>
+    <div class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h3>ER Diagram - Branch Entity</h3>
+        <a href="images/entity_Branch.png"><img src="images/entity_Branch.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h3>Business Constraints</h3>
+        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>There is a finite number of branches</h5>
+        <ul class="no-list-style">
+          <li>Oversaturating any given location with branches would reduce the demand of any one branch</li>
+        </ul>
+        <h5>A Branch cannot exist without a location</h5>
+        <ul class="no-list-style">
+          <li>This particular business model operates with the branch as the central hub for all StaffMembers of the branch. Unlike a web-based business this branch cannot conduct business without a physical location.</li>
+        </ul>
+        <h5>Branches can have more than one Property</h5>
+        <ul class="no-list-style">
+          <li>Though somewhat obvious this is an assumption of the business practice</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="entity-staffmember" class="container-fluid db-section">
-      <h3>ER Diagram - StaffMember Entity</h3>
-      <a href="images/entity_StaffMember.png"><img src="images/entity_StaffMember.png"></a>
+    <div class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h3>ER Diagram - StaffMember Entity</h3>
+        <a href="images/entity_StaffMember.png"><img src="images/entity_StaffMember.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h3>Business Constraints</h3>
+        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>There is a finite number of StaffMembers</h5>
+        <ul class="no-list-style">
+          <li>The business cannot afford to give every real estate agent in the world a job</li></ul>
+        <h5>StaffMembers MUST have one phone number but the database can accommodate multiple phone entries</h5>
+        <ul class="no-list-style">
+          <li>Ex. Cell, Work and the elusive Home phone number</li>
+        </ul>
+        <h5>Email must be unique per StaffMember (no shared accounts)</h5>
+        <ul class="no-list-style">
+          <li>Email will be used as a unique identified for login and query purposes</li>
+        </ul>
+        <h5>StaffMembers MUST have one address but the database can multiple addresses</h5>
+        <ul class="no-list-style">
+          <li>Ex. Work and Home</li>
+        </ul>
+        <h5>StaffMembers MUST have one phone number but the database can accommodate multiple phone entries</h5>
+        <ul class="no-list-style">
+          <li>Ex. Cell, Work and the elusive Home phone number</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="entity-property" class="container-fluid db-section">
-      <h3>ER Diagram - Property Entity</h3>
-      <a href="mages/entity_Property.png"><img src="images/entity_Property.png"></a>
+    <div class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h3>ER Diagram - Property Entity</h3>
+        <a href="images/entity_Property.png"><img src="images/entity_Property.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h3>Business Constraints</h3>
+        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>A Property cannot exist without a location</h5>
+        <ul class="no-list-style">
+          <li>When querying a buyer is required to select location. Properties cannot populate the query without this information.</li>
+        </ul>
+        <h5>Properties can only have one branch</h5>
+        <ul class="no-list-style">
+          <li>Though somewhat obvious this is an assumption of the business practice</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="entity-client" class="container-fluid db-section">
-      <h3>ER Diagram - Branch Client</h3>
-      <a href="images/entity_Client.png"><img src="images/entity_Client.png"></a>
+    <div class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h3>ER Diagram - Client Entity</h3>
+        <a href="images/entity_Client.png"><img src="images/entity_Client.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h3>Business Constraints</h3>
+        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>Clients MUST have one phone number but the database can accommodate multiple phone entries</h5>
+        <ul class="no-list-style">
+          <li>Ex. Cell, Work and the elusive Home phone number</li>
+        </ul>
+        <h5>Clients can have more than one Property and property type</h5>
+        <ul class="no-list-style">
+          <li>Clients can simultaneously be buying, selling or renting property at any given time</li>
+        </ul>
+        <h5>Email must be unique per Client (no shared accounts)</h5>
+        <ul class="no-list-style">
+          <li>Email will be used as a unique identified for login and query purposes</li>
+        </ul>
+        <h5>A Client cannot exist without an email address</h5>
+        <ul class="no-list-style">
+          <li>Email will be used as a unique identified for login and query purposes</li>
+        </ul>
+        <h5>Clients MUST have one phone number but the database can accommodate multiple phone entries</h5>
+        <ul class="no-list-style">
+          <li>Ex. Cell, Work and the elusive Home phone number</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="bizConstraints" class="container-fluid db-section">
+      <h3>Business Constraints not covered by Design</h3>
+      <ul>
+        <h5>There is no relationship between StaffMember or Client</h5>
+        <li>If a StaffMember is also a Client there is no mapping to indicate this relationship</li>
+        <li>Relationships only exist between Property and Client or Client and Listing Agent</li>
+      </ul>
     </div>
 
     <div id="participationConstraints" class="container-fluid db-section">
@@ -148,56 +256,9 @@
       </ul>
     </div>
 
-    <div id="bizConstraints" class="container-fluid db-section">
-      <h3>Business Constraints</h3>
-      <ul class="wordy-list">
-        <h5>There is a finite number of employees</h5>
-        <li>The business cannot afford to give every real estate agent in the world a job</li>
-
-        <h5>There is a finite number of branches</h5>
-        <li>Oversaturating any given location with branches would reduce the demand of any one branch</li>
-
-        <h5>Email must be unique per Client/StaffMember (no shared accounts)</h5>
-        <li>Email will be used as a unique identified for login and query purposes</li>
-
-        <h5>A Client cannot exist without an email address</h5>
-        <li>Email will be used as a unique identified for login and query purposes</li>
-
-        <h5>A Branch cannot exist without a location</h5>
-        <li>This particular business model operates with the branch as the central hub for all StaffMembers of the branch. Unlike a web-based business this branch cannot conduct business without a physical location.</li>
-
-        <h5>A Property cannot exist without a location</h5>
-        <li>When querying a buyer is required to select location. Properties cannot populate the query without this information.</li>
-
-        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
-        <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
-
-        <h5>Clients can have more than one Property and property type</h5>
-        <li>Clients can simultaneously be buying, selling or renting property at any given time</li>
-
-        <h5>Branches can have more than one Property</h5>
-        <li>Though somewhat obvious this is an assumption of the business practice</li>
-
-        <h5>Properties can only have one branch</h5>
-        <li>Though somewhat obvious this is an assumption of the business practice</li>
-
-        <h5>Clients and StaffMembers MUST have one phone number but the database can accommodate multiple phone entries</h5>
-        <li>Ex. Cell, Work and the elusive Home phone number</li>
-
-        <h5>StaffMembers MUST have one address but the database can multiple addresses</h5>
-        <li>Ex. Work and Home</li>
-      </ul>
-      <h3>Business Constraints not covered by Design</h3>
-      <ul>
-        <h5>There is no relationship between StaffMember or Client</h5>
-        <li>If a StaffMember is also a Client there is no mapping to indicate this relationship</li>
-        <li>Relationships only exist between Property and Client or Client and Listing Agent</li>
-      </ul>
-    </div>
-
     <div id="relationalDiagram" class="container-fluid db-section">
       <h3>Relational Diagram</h3>
-      <img src="images/relationalDiagram.png">
+      <a href="images/relationalDiagram.png"><img src="images/relationalDiagram.png"></a>
     </div>
 
     <div id="relationalSchema" class="container-fluid db-section">
