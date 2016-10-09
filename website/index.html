@@ -21,13 +21,13 @@
     <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
       <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a id="logo" class="navbar-brand" href="#"><i class="fa fa-database" aria-hidden="true"></i> Team Snazzy Pants</a>
         </div>
@@ -45,13 +45,7 @@
                   <li><a href="#entity-client">Client Entity</a></li>
                 </ul>
               </li>
-              <ul class="nav navbar-nav">
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Constraints <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#bizConstraints">Business Constraints</a></li>
-                    <li><a href="#participationConstraints">Participation Constraints</a></li>
-                  </ul>
-              </ul>
+              <li><a href="#bizConstraints">Business Constraints</a></li>
               <li><a href="#relationalDiagram">Relational Diagram</a></li>
               <li><a href="#relationalSchema">Relational Schema</a></li>
               <li><a href="#workLog">Work Log</a></li>
@@ -61,70 +55,78 @@
       </div>
     </nav>
 
-    <div id="research" class="container-fluid">
-      <h3>Research</h3>
-      <p>
-        Our business model is based on <a href="http://www.zillow.com/">zillow.com</a>. Below are some strategic decisions we made based on our research.
-      </p>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="images/zillow-price-range.png">
-          </div>
-            <div class="col-md-6 textbox">
-              <h4>
-                We grappled with how to display price range. We debated having a single field for max price.
-                Not many people distiguish a min price range but after reviewing our research we opted to use
-                a min and max.
-              </h4>
-            </div>
-          </div>
+    <div id="research" class="row container-fluid">
+      <h2>Research</h2>
+      <p>Our business model is based on <a href="http://www.zillow.com/">zillow.com</a>. Below are some strategic decisions we made based on our research.</p>
+      <div class="row container-fluid research-row">
+        <div class="col-md-6">
+          <img src="images/zillow-price-range.png">
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <img src="images/zillow-property-types.png">
-          </div>
-          <div class="col-md-6 textbox">
-            <h4>
-              We adjusted our property types to match those of our research, eliminating commercial property.
-              Our focus is entirely on residential properties.
-            </h4>
-          </div>
+        <div class="col-md-6 textbox">
+          <h4>
+            We grappled with how to display price range. We debated having a single field for max price.
+            Not many people distiguish a min price range but after reviewing our research we opted to use
+            a min and max.
+          </h4>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <img src="images/zillow-rating.png">
-          </div>
-          <div class="col-md-6 textbox">
-            <h4>
-              We added a rating attribute to the StaffMember entity. This will serve as a query parameter for clients seeking an agent.
-            </h54
-          </div>
+      </div>
+      <div class="row container-fluid research-row">
+        <div class="col-md-6">
+          <img src="images/zillow-property-types.png">
+        </div>
+        <div class="col-md-6 textbox">
+          <h4>
+            We adjusted our property types to match those of our research, eliminating commercial property.
+            Our focus is entirely on residential properties.
+          </h4>
+        </div>
+      </div>
+      <div class="row container-fluid research-row">
+        <div class="col-md-6">
+          <img src="images/zillow-rating.png">
+        </div>
+        <div class="col-md-6 textbox">
+          <h4>
+            We added a rating attribute to the StaffMember entity. This will serve as a query parameter for clients seeking an agent.
+          </h4>
         </div>
       </div>
     </div>
 
-    <div class="row container-fluid db-section">
+    <div id="erDiagram-main" class="row container-fluid db-section">
       <div class="col-md-12">
-        <h3>ER Diagram - Main</h3>
+        <h2>ER Diagram - Main</h2>
         <a href="images/erDiagram-main.png"><img src="images/erDiagram-main.png"></a>
       </div>
     </div>
 
-    <div class="row container-fluid db-section">
-      <div class="col-md-12">
-        <h3>ER Diagram - ER Entity & Relationship Overview</h3>
+    <div id="erDiagram-overview" class="row container-fluid db-section">
+      <div class="col-md-6 container-fluid db-section">
+        <h2>ER Diagram - ER Entity & Relationship Overview</h2>
         <a href="images/erDiagram-overview.png"><img src="images/erDiagram-overview.png"></a>
+      </div>
+      <div class="col-md-6 container-fluid db-section">
+        <h2>Participation Constraints</h2>
+        <ul class="wordy-list">
+          <li>Property has a total relationship with Branch for the handles relationship because we assume that every property is handled by a branch.</li>
+          <li>Branch has a partial participation with Property for the handles relation because not all branches necessarily handle properties.</li>
+          <li>Client has total participation with Branch for the has relationship because we assume all clients have a home branch.</li>
+          <li>Branch has a partial participation with Client for the has relationship because a new or under construction branch may not have any clients.</li>
+          <li>Property has a total participation for the has relation because we assume all properties are owned by a client.</li>
+          <li>Client has partial participation between property for the has relationship because there can be clients who do not have a property.</li>
+          <li>Both StaffMember and Property have partial participation in the listedBy relationship because we assume there could be staff members who don't list properties (like a teller) and also properties that aren't currently listed (like a brand new property or a property under renovations).</li>
+          <li>There is total participation for StaffMembers in the worksAt relation because all staff members work at a branch.  There is partial participation for Branch in the worksAt relation because a branch could be new or under construction and not have any StaffMembers.</li>
+        </ul>
       </div>
     </div>
 
-    <div class="row container-fluid db-section">
+    <div id="entity-branch" class="row container-fluid db-section">
       <div class="col-md-6">
-        <h3>ER Diagram - Branch Entity</h3>
+        <h2>ER Diagram - Branch Entity</h2>
         <a href="images/entity_Branch.png"><img src="images/entity_Branch.png"></a>
       </div>
       <div class="col-md-6">
-        <h3>Business Constraints</h3>
+        <h2>Business Constraints</h2>
         <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
@@ -144,13 +146,13 @@
       </div>
     </div>
 
-    <div class="row container-fluid db-section">
+    <div id=entity-staffmember class="row container-fluid db-section">
       <div class="col-md-6">
-        <h3>ER Diagram - StaffMember Entity</h3>
+        <h2>ER Diagram - StaffMember Entity</h2>
         <a href="images/entity_StaffMember.png"><img src="images/entity_StaffMember.png"></a>
       </div>
       <div class="col-md-6">
-        <h3>Business Constraints</h3>
+        <h2>Business Constraints</h2>
         <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
@@ -177,13 +179,13 @@
       </div>
     </div>
 
-    <div class="row container-fluid db-section">
+    <div id="entity-property" class="row container-fluid db-section">
       <div class="col-md-6">
-        <h3>ER Diagram - Property Entity</h3>
+        <h2>ER Diagram - Property Entity</h2>
         <a href="images/entity_Property.png"><img src="images/entity_Property.png"></a>
       </div>
       <div class="col-md-6">
-        <h3>Business Constraints</h3>
+        <h2>Business Constraints</h2>
         <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
@@ -199,13 +201,13 @@
       </div>
     </div>
 
-    <div class="row container-fluid db-section">
+    <div id="entity-client" class="row container-fluid db-section">
       <div class="col-md-6">
-        <h3>ER Diagram - Client Entity</h3>
+        <h2>ER Diagram - Client Entity</h2>
         <a href="images/entity_Client.png"><img src="images/entity_Client.png"></a>
       </div>
       <div class="col-md-6">
-        <h3>Business Constraints</h3>
+        <h2>Business Constraints</h2>
         <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
@@ -234,7 +236,7 @@
     </div>
 
     <div id="bizConstraints" class="container-fluid db-section">
-      <h3>Business Constraints not covered by Design</h3>
+      <h2>Business Constraints not covered by Design</h2>
       <ul>
         <h5>There is no relationship between StaffMember or Client</h5>
         <li>If a StaffMember is also a Client there is no mapping to indicate this relationship</li>
@@ -242,27 +244,13 @@
       </ul>
     </div>
 
-    <div id="participationConstraints" class="container-fluid db-section">
-      <h3>Participation Constraints</h3>
-      <ul class="wordy-list">
-        <li>Property has a total relationship with Branch for the handles relationship because we assume that every property is handled by a branch.</li>
-        <li>Branch has a partial participation with Property for the handles relation because not all branches necessarily handle properties.</li>
-        <li>Client has total participation with Branch for the has relationship because we assume all clients have a home branch.</li>
-        <li>Branch has a partial participation with Client for the has relationship because a new or under construction branch may not have any clients.</li>
-        <li>Property has a total participation for the has relation because we assume all properties are owned by a client.</li>
-        <li>Client has partial participation between property for the has relationship because there can be clients who do not have a property.</li>
-        <li>Both StaffMember and Property have partial participation in the listedBy relationship because we assume there could be staff members who don't list properties (like a teller) and also properties that aren't currently listed (like a brand new property or a property under renovations).</li>
-        <li>There is total participation for StaffMembers in the worksAt relation because all staff members work at a branch.  There is partial participation for Branch in the worksAt relation because a branch could be new or under construction and not have any StaffMembers.</li>
-      </ul>
-    </div>
-
     <div id="relationalDiagram" class="container-fluid db-section">
-      <h3>Relational Diagram</h3>
+      <h2>Relational Diagram</h2>
       <a href="images/relationalDiagram.png"><img src="images/relationalDiagram.png"></a>
     </div>
 
     <div id="relationalSchema" class="container-fluid db-section">
-      <h3>Relational Schema</h3>
+      <h2>Relational Schema</h2>
       <div id="schemaItems">
         <p>StaffMember(<strong>StaffId</strong>, Name, Email, Phone, Address, AgentType)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
@@ -349,7 +337,7 @@
     </div>
 
     <div id="workLog" class="container-fluid db-section">
-      <h3>Work Log</h3>
+      <h2>Work Log</h2>
       <table class="table table-responsive table-hover table-striped">
         <thead>
           <tr>

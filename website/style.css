@@ -48,12 +48,19 @@ ul.no-list-style {
   line-height: 1.5;
   max-width: 65%;
 }
-h3 {
+h2 {
   color: #27738C;
 }
 
+@media screen and (min-width:544px){
+  .row.container-fluid {
+  padding-left: 35px;
+  }
+}
+
 img {
-  width: 65%;
+  width: 75%;
+  border-radius: 5px;
 }
 
 #research img {
@@ -61,6 +68,10 @@ img {
   display: block;
   margin-left: 25%;
   margin-right: auto;
+}
+
+.research-row {
+  padding-bottom: 10px;
 }
 
 .textbox {
