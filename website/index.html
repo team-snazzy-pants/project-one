@@ -118,14 +118,14 @@
       <div class="col-md-6 container-fluid db-section">
         <h2>Participation Constraints</h2>
         <ul class="wordy-list">
-          <li>Property has a total relationship with Branch for the handles relationship because we assume that every property is handled by a branch.</li>
+          <li>Property has a <strong>total relationship</strong> with Branch for the handles relationship because we assume that every property is handled by a branch.</li>
           <li>Branch has a partial participation with Property for the handles relation because not all branches necessarily handle properties.</li>
-          <li>Client has total participation with Branch for the has relationship because we assume all clients have a home branch.</li>
+          <li>Client has <strong>total relationship</strong> with Branch for the has relationship because we assume all clients have a home branch.</li>
           <li>Branch has a partial participation with Client for the has relationship because a new or under construction branch may not have any clients.</li>
-          <li>Property has a total participation for the has relation because we assume all properties are owned by a client.</li>
+          <li>Property has a <strong>total relationship</strong> for the has relation because we assume all properties are owned by a client.</li>
           <li>Client has partial participation between property for the has relationship because there can be clients who do not have a property.</li>
           <li>Both StaffMember and Property have partial participation in the listedBy relationship because we assume there could be staff members who don't list properties (like a teller) and also properties that aren't currently listed (like a brand new property or a property under renovations).</li>
-          <li>There is total participation for StaffMembers in the worksAt relation because all staff members work at a branch.  There is partial participation for Branch in the worksAt relation because a branch could be new or under construction and not have any StaffMembers.</li>
+          <li>There is <strong>total relationship</strong> for StaffMembers in the worksAt relation because all staff members work at a branch.  There is partial participation for Branch in the worksAt relation because a branch could be new or under construction and not have any StaffMembers.</li>
         </ul>
       </div>
     </div>
@@ -343,7 +343,7 @@
           <tr><td>Bool onSiteParking</td><td>true or false</td></tr>
           <tr><td>Int numBedrooms</td><td>integer representing number of bedrooms on property; typically < 10</td></tr>
           <tr><td>Int numBathrooms</td><td>integer representing number of bathrooms on property; typically < 5</td></tr>
-          <tr><td>Char communityPillar</td><td>'y' for yes 'n' for no </td></tr>
+          <tr><td>Bool communityPillar</td><td>true or false</td></tr>
           <tr><td>String petTypeAccepted</td><td>< 50 chars </td></tr>
           <tr><td>Int weightAccepted</td><td>max weight accepted on property</td></tr>
           <tr><td>Bool hasSignedWaiver</td><td>true or false </td></tr>
@@ -351,7 +351,7 @@
           <tr><td>Int deposit</td><td>deposit as a monetary value (dollars.cents)</td></tr>
           <tr><td>Date dateAvailable</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>Bool smoking</td><td>true or false</td></tr>
-          <tr><td>Char inUnitLaundry</td><td> 'y' for yes 'n' for no </td></tr>
+          <tr><td>Bool inUnitLaundry</td><td>true or false</td></tr>
           <tr><td>Int incomeRestricted</td><td> income must be greater than amount </td></tr>
           <tr><td>branchId</td><td>refers to primary key in Branch</td></tr>
         </table>
