@@ -278,20 +278,20 @@
       <h2>Relational Schema</h2>
       <div id="schemaItems">
         <p>staffMember(<strong>StaffId</strong>, Name, Email, rating, salary, <em>branchId</em>)</p>
-        <p>staffPhone(<strong><em>StaffId</em></strong>, phone)</p>
-        <p>staffAddress(<strong><em>StaffId</em></strong>, street, city, zipCode)</p>
+        <p>staffPhone(<strong><em>StaffId</em></strong>, <strong>phone</strong>)</p>
+        <p>staffAddress(<strong><em>StaffId</em></strong>, <strong>street</strong>, city, zipCode)</p>
         <p>sellingAgent<strong><em>StaffId</em></strong>, sellingAgentCommission)</p>
         <p>listingAgent<strong><em>StaffId</em></strong>, listingAgentCommission)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
         <p>property(<strong>propertyId</strong>, rentalOrSale, propertyType, listingType, adDate, adCost, adPublication, street, city, zipCode, listingPrice, listingDate, pricePerSqFoot, numStories, amenities, schoolDistrict, lotSize, squareFootage, yearBuilt, hoaCost, onSiteParking, numBedrooms, numBathrooms, communityPillar, petTypeAccepted, weightAccepted, hasSignedWaiver, brokerFee, deposit, dateAvailable, smoking, inUnitLaundry, incomeRestricted, <em>branchId</em>)</p>
-        <p>propertyStatsKeywords(<strong><em>propertyId</em></strong>, keyword)</p>
-        <p>propertyOpenHouse(<strong><em>propertyId</em></strong>, openHouseDate, openHouseTime)</p>
+        <p>propertyStatsKeywords(<strong><em>propertyId</em></strong>, <strong>keyword</strong>)</p>
+        <p>propertyOpenHouse(<strong><em>propertyId</em></strong>, <strong>openHouseDate</strong>, openHouseTime)</p>
         <p>propertyOffersMade(<strong><em>propertyId</em></strong>, <strong>offerId</strong>, offerPrice, offerDate, acceptedOrRejected)</p>
         <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
         <p>client(<strong>clientId</strong>, email, name, street, city, zipCode)</p>
-        <p>clientType(<strong><em>clientId</em></strong>, ownerType, rentalContract, amenities, minPrice, maxPrice)</p>
-        <p>clientBuyerLocation(<strong><em>clientId</em></strong>, street, city, zipCode)</p>
-        <p>clientPhone(<strong><em>clientId</em></strong>, phone)</p>
+        <p>clientType(<strong><em>clientId</em></strong>, <strong>ownerType</strong>, rentalContract, amenities, minPrice, maxPrice)</p>
+        <p>clientBuyerLocation(<strong><em>clientId</em></strong>, <strong>street</strong>, city, zipCode)</p>
+        <p>clientPhone(<strong><em>clientId</em></strong>, <strong>phone</strong>)</p>
         <p>hasA(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
         <p>branch(<strong>branch</strong>, location)</p>
 
@@ -378,18 +378,18 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>propertyStatsKeywords Types:</h4>
           <tr><td>String propertyId</td><td>refers to primary key in Property</td></tr>
-          <tr><td>String Array keyword</td><td>an array of keywords related to property</td></tr>
+          <tr><td>String Array keyword</td><td>an array of keywords related to property.</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>property_open_house Types:</h4>
+          <h4>propertyOpenHouse Types:</h4>
           <tr><td>String propertyId</td><td>refers to primary key in Property</td></tr>
           <tr><td>Date openHouseDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>String openHouseTime</td><td>string in format XX:XX</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>property_offers_made Types:</h4>
+          <h4>propertyOffersMade Types:</h4>
           <tr><td>String propertyId</td><td>refers to primary key in Property</td></tr>
           <tr><td>String offerId</td><td>first character is letter 'o' (for offer), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Double offerPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
@@ -414,7 +414,7 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>client_type Types:</h4>
+          <h4>clientType Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
           <tr><td>Char ownerType</td><td>'s' for seller; 'r' for renter</td></tr>
           <tr><td>String rentalContract</td><td><10000 chars </td></tr>
