@@ -499,5 +499,53 @@
       </table>
     </div>
 
+    <script>
+      $(document).ready(function(){
+
+        var currentId = 0;
+
+        // make array of div ids
+        var divIds = [];
+        $('div[id]').each(function(){
+          divIds.push( this.id );
+        });
+
+        // remove first two items from array (clean up)
+        divIds.shift();
+        divIds.shift();
+
+        // listen for j or k keypress
+        $(document).keydown(function(e) {
+          switch(e.which) {
+              case 74: // j
+              jPressed();
+              break;
+
+              case 75: // k
+              kPressed();
+              break;
+
+              default: return; // exit this handler for other keys
+          }
+          e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
+
+        function jPressed() {
+          if (currentId != (divIds.length - 1)) {
+              currentId++;
+          }
+          location.href = '#' + divIds[currentId];
+        }
+
+        function kPressed() {
+          if (currentId != 0) {
+              currentId--;
+          }
+          location.href = '#' + divIds[currentId];
+        }
+
+      });
+    </script>
+
   </body>
 </html>
