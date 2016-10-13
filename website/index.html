@@ -267,14 +267,23 @@
     <div id="relationalSchema" class="container-fluid db-section">
       <h2>Relational Schema</h2>
       <div id="schemaItems">
-        <p>StaffMember(<strong>StaffId</strong>, Name, Email, Phone, Address, AgentType)</p>
+        <p>StaffMember(<strong>StaffId</strong>, Name, Email, rating, salary, <em>branchId</em>)</p>
+        <p>staff_phone(<strong><em>StaffId</em></strong>, phone)</p>
+        <p>staff_address(<strong><em>StaffId</em></strong>, street, city, zipCode)</p>
+        <p>sellingAgent<strong><em>StaffId</em></strong>, sellingAgentCommission)</p>
+        <p>listingAgent<strong><em>StaffId</em></strong>, listingAgentCommission)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-        <p>Property(<strong>propertyId</strong>, listingDate, propertyType, listingType, listingPrice, numBedrooms, squareFootage, adDate, adCost, adPublication, inspectionDate, zipCode, city, street)</p>
+        <p>Property(<strong>propertyId</strong>, rentalOrSale, propertyType, listingType, adDate, adCost, adPublication, street, city, zipCode, listingPrice, listingDate, pricePerSqFoot, numStories, amenities, schoolDistrict, lotSize, squareFootage, yearBuilt, hoaCost, onSiteParking, numBedrooms, numBathrooms, communityPillar, petTypeAccepted, weightAccepted, hasSignedWaiver, brokerFee, deposit, dateAvailable, smoking, inUnitLaundry, incomeRestricted, <em>branchId</em>)</p>
+        <p>property_stats_keywords(<strong><em>propertyId</em></strong>, keyword)</p>
+        <p>property_open_house(<strong><em>propertyId</em></strong>, openHouseDate, openHouseTime)</p>
+        <p>property_offers_made(<strong><em>propertyId</em></strong>, <strong>offerId</strong>, offerPrice, offerDate, acceptedOrRejected)</p>
         <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-        <p>client(<strong>clientId</strong>, phone, address, name, email, ownerType, rentalContract, location, amenities, maxPrice, minPrice)</p>
-        <p>banksWith(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
+        <p>client(<strong>clientId</strong>, email, name, street, city, zipCode)</p>
+        <p>client_type(<strong><em>clientId</em></strong>, ownerType, rentalContract, amenities, minPrice, maxPrice)</p>
+        <p>client_buyer_location(<strong><em>clientId</em></strong>, street, city, zipCode)</p>
+        <p>client_phone(<strong><em>clientId</em></strong>, phone)</p>
+        <p>hasA(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
         <p>branch(<strong>branch</strong>, location)</p>
-        <p>handles(<strong><em>branchId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
 
         <table class="table table-responsive table-hover table-striped">
           <h4>StaffMember Types:</h4>
@@ -323,7 +332,7 @@
           <tr><td>String propertyId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Char rentalOrSale</td><td>'r' for rental; 's' for sale</td></tr>
           <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominum, Townhomes, Manufactured, Lots}</td></tr>
-          <tr><td>String saleType</td><td>???</td></tr>
+          <tr><td>String listingType</td><td>set list of listing types {rental, sale}</td></tr>
           <tr><td>Date adDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>Double adCost</td><td>ad cost represented as a dollar value (dollars.cents)</td></tr>
           <tr><td>String adPublication</td><td>publication or website name</td></tr>
