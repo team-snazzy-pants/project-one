@@ -281,9 +281,35 @@
           <tr><td>String StaffId</td><td>first character is letter 's' (for staff), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>String Name</td><td>typically < 100 chars</td></tr>
           <tr><td>String Email</td><td>typically < 50 chars</td></tr>
-          <tr><td>String Phone</td><td>ten characters</td></tr>
-          <tr><td>String Address</td><td>typically < 100 chars</td></tr>
-          <tr><td>Char AgentType</td><td>1 character: 's' for sellingAgent, 'l' for listingAgent</td></tr>
+          <tr><td>Int rating</td><td>an integer between 1 and 5</td></tr>
+          <tr><td>Double salary</td><td>a large number monetary value</td></tr>
+          <tr><td>String branchId</td><td>refers to primary key in Branch</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>staff_phone Types:</h4>
+          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>String Phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>staff_address Types:</h4>
+          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>String street</td><td>typically < 100 chars</td></tr>
+          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>sellingAgent Types:</h4>
+          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>Double sellingAgentCommission</td><td>large monetary value representing sale commission</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>listingAgent Types:</h4>
+          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>Double listingAgentCommission</td><td>large monetary value representing listing commission</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
@@ -295,31 +321,61 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>Property Types:</h4>
           <tr><td>String propertyId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>Date listingDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>Char rentalOrSale</td><td>'r' for rental; 's' for sale</td></tr>
           <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominum, Townhomes, Manufactured, Lots}</td></tr>
-          <tr><td>Double listingPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
-          <tr><td>String listingType</td><td>set list {sale, rent}</td></tr>
-          <tr><td>Int numBedrooms</td><td>integer representing number of bedrooms on property; typically < 10</td></tr>
-          <tr><td>Int numBathrooms</td><td>integer representing number of bedrooms on property; typically < 5</td></tr>
-          <tr><td>Int squareFootage</td><td>integer representing square footage of property; typically > 1000</td></tr>
+          <tr><td>String saleType</td><td>???</td></tr>
           <tr><td>Date adDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
-          <tr><td>String adPublication</td><td>publication name; website title, magazine name, print media, etc; length will vary; max size = 100 chars</td></tr>
-          <tr><td>Date inspectionDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>Double adCost</td><td>ad cost represented as a dollar value (dollars.cents)</td></tr>
+          <tr><td>String adPublication</td><td>publication or website name</td></tr>
+          <tr><td>String street</td><td>typically < 100 chars</td></tr>
+          <tr><td>String city</td><td>typically < 25 chars</td></tr>
           <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
-          <tr><td>String city</td><td>40 chars max</td></tr>
-          <tr><td>String street</td><td>40 chars max</td></tr>
-          <tr><td>Rental options</td><td> composite attribute </td></tr>
-          <tr><td>Char communityPillar</td><td> 'y' for yes 'n' for no </td></tr>
-          <tr><td>Int incomeRestricted</td><td> income must be greater than amount </td></tr>
+          <tr><td>Double listingPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
+          <tr><td>Date listingDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>String pricePerSqFoot</td><td>price per square foot; dollar value (dollars.cents)</td></tr>
+          <tr><td>Int numStories</td><td>integer representing number of stories on property; typically < 5</td></tr>
+          <tr><td>Int Array ammenities</td><td>list of property ammenities</td></tr>
+          <tr><td>String schoolDistrict</td><td>school district; typically < 100</td></tr>
+          <tr><td>Double lotSize</td><td>number value representing lot size</td></tr>
+          <tr><td>Int squareFootage</td><td>integer representing square footage of property; typically > 1000</td></tr>
+          <tr><td>Int yearBuilt</td><td>format XXXX</td></tr>
+          <tr><td>Double hoaCost</td><td>HOA cost represented as a monetary value (dollars.cents)</td></tr>
+          <tr><td>Bool onSiteParking</td><td>true or false</td></tr>
+          <tr><td>Int numBedrooms</td><td>integer representing number of bedrooms on property; typically < 10</td></tr>
+          <tr><td>Int numBathrooms</td><td>integer representing number of bathrooms on property; typically < 5</td></tr>
+          <tr><td>Char communityPillar</td><td>'y' for yes 'n' for no </td></tr>
+          <tr><td>String petTypeAccepted</td><td>< 50 chars </td></tr>
+          <tr><td>Int weightAccepted</td><td>max weight accepted on property</td></tr>
+          <tr><td>Bool hasSignedWaiver</td><td>true or false </td></tr>
+          <tr><td>Int brokerFee</td><td>broker fee as a monetary value (dollars.cents)</td></tr>
+          <tr><td>Int deposit</td><td>deposit as a monetary value (dollars.cents)</td></tr>
+          <tr><td>Date dateAvailable</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>Bool smoking</td><td>true or false</td></tr>
           <tr><td>Char inUnitLaundry</td><td> 'y' for yes 'n' for no </td></tr>
-          <tr><td>Char smoking</td><td> 'y' for yes 'n' for no </td></tr>
-          <tr><td>Date dateAvailable</td><td></td></tr>
-          <tr><td>Int deposit</td><td></td></tr>
-          <tr><td>Int brokerFee</td><td></td></tr>
-          <tr><td>pets</td><td> composite attribute</td></tr>
-          <tr><td>String petTypeAccepted</td><td> < 50 chars </td></tr>
-          <tr><td>Int weightAccepted</td><td></td></tr>
-          <tr><td>Char hasSignedWaiver</td><td> 'y' for yes 'n' for no </td></tr>
+          <tr><td>Int incomeRestricted</td><td> income must be greater than amount </td></tr>
+          <tr><td>branchId</td><td>refers to primary key in Branch</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>property_stats_keywords Types:</h4>
+          <tr><td>String PropertyId</td><td>refers to primary key in Property</td></tr>
+          <tr><td>String Array keyword</td><td>an array of keywords related to property</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>property_open_house Types:</h4>
+          <tr><td>String propertyId</td><td>refers to primary key in Property</td></tr>
+          <tr><td>Date openHouseDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>String openHouseTime</td><td>string in format XX:XX</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>property_offers_made Types:</h4>
+          <tr><td>String propertyId</td><td>refers to primary key in Property</td></tr>
+          <tr><td>String offerId</td><td>first character is letter 'o' (for offer), rest of characters are numbers (ten characters)</td></tr>
+          <tr><td>Double offerPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
+          <tr><td>Date offerDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>String acceptedOrRejected</td><td>string value either {null, accepted, rejected}</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
@@ -331,20 +387,39 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>client Types:</h4>
           <tr><td>String clientId</td><td>first character is letter 'c' (for client), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>String phone</td><td>10 chars multi value attribute last attribute for contact info</td></tr>
-          <tr><td>String address</td><td>< 100 chars</td></tr>
-          <tr><td>String name</td><td>< 100 chars</td></tr>
           <tr><td>String email</td><td>< 50 chars</td></tr>
+          <tr><td>String name</td><td>< 100 chars</td></tr>
+          <tr><td>String street</td><td>typically < 100 chars</td></tr>
+          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>client_type Types:</h4>
+          <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
           <tr><td>Char ownerType</td><td>'s' for seller; 'r' for renter</td></tr>
-          <tr><td>String rentalContract</td><td><10,000 chars </td></tr>
-          <tr><td>String location</td><td>< 100 chars multivalue attribute </td></tr>
+          <tr><td>String rentalContract</td><td><10000 chars </td></tr>
           <tr><td>String amenities</td><td>< 1000 chars part of buyer client type</td></tr>
           <tr><td>Double maxPrice</td><td>part of price range; dollar value (dollar.cents)</td></tr>
           <tr><td>Double minPrice</td><td> part of price range; dollar value (dollar.cents)</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>banksWith Types:</h4>
+          <h4>client_buyer_location Types:</h4>
+          <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
+          <tr><td>String street</td><td>typically < 100 chars</td></tr>
+          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>client_phone Types:</h4>
+          <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
+          <tr><td>String Phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>hasA Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in client</td></tr>
           <tr><td>String branchId</td><td>refers to primary key in branch</td></tr>
         </table>
@@ -352,7 +427,9 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>branch Types:</h4>
           <tr><td>String branchId</td><td>first character is letter 'b' (for branch), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>String location</td><td>defines region in which branch is located</td></tr>
+          <tr><td>String street</td><td>typically < 100 chars</td></tr>
+          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
