@@ -264,6 +264,14 @@
     <div id="relationalDiagram" class="container-fluid db-section">
       <h2>Relational Diagram</h2>
       <a href="images/relationalDiagram.png"><img src="images/relationalDiagram.png"></a>
+      <ul>
+        <li>We modeled N:M relationships with the relationship relation / cross-reference option.  We created a separate relation and used the primary keys of the entities modeled as foreign keys.</li>
+        <li>We modeled inheritance with staffMember and its child classes sellingAgent and listingAgent.  We created separate relations for the superclass and the two subclasses.</li>
+        <li>We did not have any ternary relationships.</li>
+        <li>We mapped multi-attribute attributes using a separate relation.  Each has a foreign key of its entity and a combined primary key of the foreign key plus an attribute of the multi-valued entity.</li>
+        <li>There were no constraints that were represented in ER design, but could not be mapped to the relational design.</li>
+        <li>One design choice we made was to use inheritance to model staffMember.  This makes it easy to quickly understand the soldBy and listedBy relationships. Information gained by this design choice was commission attribute on each child class. This could be modeled more simply without inheritance, but it would be harder to quickly understand.</li>
+      </ul>
     </div>
 
     <div id="relationalSchema" class="container-fluid db-section">
@@ -298,13 +306,13 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>staff_phone Types:</h4>
+          <h4>staffPhone Types:</h4>
           <tr><td>String staffId</td><td>refers to primary key in StaffMember</td></tr>
           <tr><td>String phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>staff_address Types:</h4>
+          <h4>staffAddress Types:</h4>
           <tr><td>String staffId</td><td>refers to primary key in StaffMember</td></tr>
           <tr><td>String street</td><td>typically < 100 chars</td></tr>
           <tr><td>String city</td><td>typically < 25 chars</td></tr>
