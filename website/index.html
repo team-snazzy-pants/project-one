@@ -289,7 +289,7 @@
         <p>propertyOffersMade(<strong><em>propertyId</em></strong>, <strong>offerId</strong>, offerPrice, offerDate, acceptedOrRejected)</p>
         <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
         <p>client(<strong>clientId</strong>, email, name, street, city, zipCode)</p>
-        <p>clientType(<strong><em>clientId</em></strong>, <strong>ownerType</strong>, rentalContract, amenities, minPrice, maxPrice)</p>
+        <p>clientType(<strong><em>clientId</em></strong>, <strong>clientTypeId</strong>, ownerType, rentalContract, amenities, minPrice, maxPrice)</p>
         <p>clientBuyerLocation(<strong><em>clientId</em></strong>, <strong>street</strong>, city, zipCode)</p>
         <p>clientPhone(<strong><em>clientId</em></strong>, <strong>phone</strong>)</p>
         <p>hasA(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
@@ -406,6 +406,7 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>client Types:</h4>
           <tr><td>String clientId</td><td>first character is letter 'c' (for client), rest of characters are numbers (ten characters)</td></tr>
+          <tr><td>String clientTypeId</td><td>first character is letter 't' (for type), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>String email</td><td>< 50 chars</td></tr>
           <tr><td>String name</td><td>< 100 chars</td></tr>
           <tr><td>String street</td><td>typically < 100 chars</td></tr>
