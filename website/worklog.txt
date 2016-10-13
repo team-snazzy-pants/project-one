@@ -1,0 +1,31 @@
+
+	Project 1 | Team Snazzy Pants | Work Log
+
+Date		Participants		Start	End
+-------------------------------------------------------
+9/14/2016	Adriana, Mark, Woodrow	2:00pm	4:30pm	
+Initial meeting.
+We sketched out a design of our ER diagram on a white board (click to view).
+We took pictures and began researching tools to use to build out diagram.
+
+9/28/2016	Adriana, Mark, Woodrow	2:00pm	4:30pm	
+Using photos from previous meeting we refined our ER diagram.
+We began drafting our ER diagram using Draw.io (Google tool).
+We sent an email to Professor asking for clarification before proceeding further.
+
+10/3/2016	Adriana, Mark, Woodrow	2:00pm	4:30pm	
+Adriana and Woodrow looked at zillow.com to research futher business contraints 
+and evaluate how a working realty database works.
+Mark began building the relational diagram and drafted the presentation website.
+As a team we developed a finalized list of business constraints and functions.
+
+10/5/2016	Adriana, Mark, Woodrow	2:00pm	11:30pm	
+Mark completed the relational diagram and relational schema.
+Adriana refactored the website layout/style.
+Woodrow and Adriana completed the relational schema types tables.
+
+10/12/2016	Adriana, Mark, Woodrow	2:00pm	11:30pm	
+We decided to showcase our research more prominently. 
+Based on that some changed had to me made. 
+Adriana updated ER diagram and images on site. 
+Mark rebuilt the relational diagram. Woodrow updated the datatypes.

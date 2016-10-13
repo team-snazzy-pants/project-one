@@ -53,7 +53,7 @@ h2 {
 }
 
 @media screen and (min-width:544px){
-  .row.container-fluid {
+  .container-fluid {
   padding-left: 35px;
   }
 }
