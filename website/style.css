@@ -115,3 +115,6 @@ img {
 #schemaItems ul li {
   margin: 5px 0; line-height: 1.3;
 }
+#schemaItems td:first-child {
+  width: 180px;
+}
