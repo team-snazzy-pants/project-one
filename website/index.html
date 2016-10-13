@@ -65,8 +65,8 @@
         </div>
         <div class="col-md-6 textbox">
           <h4>
-            We grappled with how to display price range. We debated having a single field for max price.
-            Not many people distiguish a min price range but after reviewing our research we opted to use
+            We debated a lot how to display price range. We debated having a single field for max price.
+            Not many people distinguish a min price range but after reviewing our research we opted to use
             a min and max.
           </h4>
         </div>
@@ -98,7 +98,7 @@
         </div>
         <div class="col-md-6 textbox">
           <h4>
-            We modelled our rental attributes on Zillo's.  We added a pets attribute to model real world details like which pets are allowed and what pet weight limits exist.
+            We modeled our rental attributes on Zillo's.  We added a pets attribute to model real world details like which pets are allowed and what pet weight limits exist. We added a lot of other attributes like income restricted and community pillar to use Zillo's useful search options.
           </h4>
         </div>
       </div>
@@ -258,6 +258,7 @@
         <li>If a StaffMember is also a Client there is no mapping to indicate this relationship</li>
         <li>Relationships only exist between Property and Client or Client and Listing Agent</li>
       </ul>
+      <p>After some debate, we opted to not model a relationship between staff member and client to keep from getting bogged down in minutia and to keep the model from becomming unnecessarily complex.  Our model was already becoming quite complex without this relationship.</p>
     </div>
 
     <div id="relationalDiagram" class="container-fluid db-section">
@@ -268,29 +269,29 @@
     <div id="relationalSchema" class="container-fluid db-section">
       <h2>Relational Schema</h2>
       <div id="schemaItems">
-        <p>StaffMember(<strong>StaffId</strong>, Name, Email, rating, salary, <em>branchId</em>)</p>
-        <p>staff_phone(<strong><em>StaffId</em></strong>, phone)</p>
-        <p>staff_address(<strong><em>StaffId</em></strong>, street, city, zipCode)</p>
+        <p>staffMember(<strong>StaffId</strong>, Name, Email, rating, salary, <em>branchId</em>)</p>
+        <p>staffPhone(<strong><em>StaffId</em></strong>, phone)</p>
+        <p>staffAddress(<strong><em>StaffId</em></strong>, street, city, zipCode)</p>
         <p>sellingAgent<strong><em>StaffId</em></strong>, sellingAgentCommission)</p>
         <p>listingAgent<strong><em>StaffId</em></strong>, listingAgentCommission)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-        <p>Property(<strong>propertyId</strong>, rentalOrSale, propertyType, listingType, adDate, adCost, adPublication, street, city, zipCode, listingPrice, listingDate, pricePerSqFoot, numStories, amenities, schoolDistrict, lotSize, squareFootage, yearBuilt, hoaCost, onSiteParking, numBedrooms, numBathrooms, communityPillar, petTypeAccepted, weightAccepted, hasSignedWaiver, brokerFee, deposit, dateAvailable, smoking, inUnitLaundry, incomeRestricted, <em>branchId</em>)</p>
-        <p>property_stats_keywords(<strong><em>propertyId</em></strong>, keyword)</p>
-        <p>property_open_house(<strong><em>propertyId</em></strong>, openHouseDate, openHouseTime)</p>
-        <p>property_offers_made(<strong><em>propertyId</em></strong>, <strong>offerId</strong>, offerPrice, offerDate, acceptedOrRejected)</p>
+        <p>property(<strong>propertyId</strong>, rentalOrSale, propertyType, listingType, adDate, adCost, adPublication, street, city, zipCode, listingPrice, listingDate, pricePerSqFoot, numStories, amenities, schoolDistrict, lotSize, squareFootage, yearBuilt, hoaCost, onSiteParking, numBedrooms, numBathrooms, communityPillar, petTypeAccepted, weightAccepted, hasSignedWaiver, brokerFee, deposit, dateAvailable, smoking, inUnitLaundry, incomeRestricted, <em>branchId</em>)</p>
+        <p>propertyStatsKeywords(<strong><em>propertyId</em></strong>, keyword)</p>
+        <p>propertyOpenHouse(<strong><em>propertyId</em></strong>, openHouseDate, openHouseTime)</p>
+        <p>propertyOffersMade(<strong><em>propertyId</em></strong>, <strong>offerId</strong>, offerPrice, offerDate, acceptedOrRejected)</p>
         <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
         <p>client(<strong>clientId</strong>, email, name, street, city, zipCode)</p>
-        <p>client_type(<strong><em>clientId</em></strong>, ownerType, rentalContract, amenities, minPrice, maxPrice)</p>
-        <p>client_buyer_location(<strong><em>clientId</em></strong>, street, city, zipCode)</p>
-        <p>client_phone(<strong><em>clientId</em></strong>, phone)</p>
+        <p>clientType(<strong><em>clientId</em></strong>, ownerType, rentalContract, amenities, minPrice, maxPrice)</p>
+        <p>clientBuyerLocation(<strong><em>clientId</em></strong>, street, city, zipCode)</p>
+        <p>clientPhone(<strong><em>clientId</em></strong>, phone)</p>
         <p>hasA(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
         <p>branch(<strong>branch</strong>, location)</p>
 
         <table class="table table-responsive table-hover table-striped">
           <h4>StaffMember Types:</h4>
-          <tr><td>String StaffId</td><td>first character is letter 's' (for staff), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>String Name</td><td>typically < 100 chars</td></tr>
-          <tr><td>String Email</td><td>typically < 50 chars</td></tr>
+          <tr><td>String staffId</td><td>first character is letter 's' (for staff), rest of characters are numbers (ten characters)</td></tr>
+          <tr><td>String name</td><td>typically < 100 chars</td></tr>
+          <tr><td>String email</td><td>typically < 50 chars</td></tr>
           <tr><td>Int rating</td><td>an integer between 1 and 5</td></tr>
           <tr><td>Double salary</td><td>a large number monetary value</td></tr>
           <tr><td>String branchId</td><td>refers to primary key in Branch</td></tr>
@@ -298,13 +299,13 @@
 
         <table class="table table-responsive table-hover table-striped">
           <h4>staff_phone Types:</h4>
-          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
-          <tr><td>String Phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
+          <tr><td>String staffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>String phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
           <h4>staff_address Types:</h4>
-          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>String staffId</td><td>refers to primary key in StaffMember</td></tr>
           <tr><td>String street</td><td>typically < 100 chars</td></tr>
           <tr><td>String city</td><td>typically < 25 chars</td></tr>
           <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
@@ -312,27 +313,27 @@
 
         <table class="table table-responsive table-hover table-striped">
           <h4>sellingAgent Types:</h4>
-          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>String staffId</td><td>refers to primary key in StaffMember</td></tr>
           <tr><td>Double sellingAgentCommission</td><td>large monetary value representing sale commission</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
           <h4>listingAgent Types:</h4>
-          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>String staffId</td><td>refers to primary key in StaffMember</td></tr>
           <tr><td>Double listingAgentCommission</td><td>large monetary value representing listing commission</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
           <h4>listedBy Types:</h4>
-          <tr><td>String StaffId</td><td>refers to primary key in StaffMember</td></tr>
-          <tr><td>String PropertyId</td><td>refers to primary key in Property</td></tr>
+          <tr><td>String staffId</td><td>refers to primary key in StaffMember</td></tr>
+          <tr><td>String propertyId</td><td>refers to primary key in Property</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
           <h4>Property Types:</h4>
           <tr><td>String propertyId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Char rentalOrSale</td><td>'r' for rental; 's' for sale</td></tr>
-          <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominum, Townhomes, Manufactured, Lots}</td></tr>
+          <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominium, Townhomes, Manufactured, Lots}</td></tr>
           <tr><td>String listingType</td><td>set list of listing types {rental, sale}</td></tr>
           <tr><td>Date adDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>Double adCost</td><td>ad cost represented as a dollar value (dollars.cents)</td></tr>
@@ -344,7 +345,7 @@
           <tr><td>Date listingDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>String pricePerSqFoot</td><td>price per square foot; dollar value (dollars.cents)</td></tr>
           <tr><td>Int numStories</td><td>integer representing number of stories on property; typically < 5</td></tr>
-          <tr><td>Int Array ammenities</td><td>list of property ammenities</td></tr>
+          <tr><td>Int Array amenities</td><td>list of property amenities</td></tr>
           <tr><td>String schoolDistrict</td><td>school district; typically < 100</td></tr>
           <tr><td>Double lotSize</td><td>number value representing lot size</td></tr>
           <tr><td>Int squareFootage</td><td>integer representing square footage of property; typically > 1000</td></tr>
@@ -367,8 +368,8 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>property_stats_keywords Types:</h4>
-          <tr><td>String PropertyId</td><td>refers to primary key in Property</td></tr>
+          <h4>propertyStatsKeywords Types:</h4>
+          <tr><td>String propertyId</td><td>refers to primary key in Property</td></tr>
           <tr><td>String Array keyword</td><td>an array of keywords related to property</td></tr>
         </table>
 
@@ -391,7 +392,7 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>owns Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
-          <tr><td>String PropertyId</td><td>refers to primary key in Property</td></tr>
+          <tr><td>String propertyId</td><td>refers to primary key in Property</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
@@ -415,7 +416,7 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>client_buyer_location Types:</h4>
+          <h4>clientBuyerLocation Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
           <tr><td>String street</td><td>typically < 100 chars</td></tr>
           <tr><td>String city</td><td>typically < 25 chars</td></tr>
@@ -423,9 +424,9 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>client_phone Types:</h4>
+          <h4>clientPhone Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
-          <tr><td>String Phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
+          <tr><td>String phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
