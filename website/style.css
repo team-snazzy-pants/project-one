@@ -28,7 +28,7 @@ body {
   color: #A2E0F5;
 }
 #project-info {
-  background-image: url("images/blue-backsplash.png");
+  background-image: url("blue-backsplash.png");
   background-repeat: repeat-x;
   text-align: center;
   text-shadow: 2px 2px 5px black, 0 0 10px darkblue;
