@@ -283,7 +283,7 @@
         <p>sellingAgent<strong><em>StaffId</em></strong>, sellingAgentCommission)</p>
         <p>listingAgent<strong><em>StaffId</em></strong>, listingAgentCommission)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-        <p>property(<strong>propertyId</strong>, rentalOrSale, propertyType, listingType, adDate, adCost, adPublication, street, city, zipCode, listingPrice, listingDate, hoaCost, onSiteParking, numBedrooms, numBathrooms,  <em>branchId</em>)</p>
+        <p>property(<strong>propertyId</strong>, rentalOrSale, propertyType, adDate, adCost, adPublication, street, city, zipCode, listingPrice, listingDate, hoaCost, onSiteParking, numBedrooms, numBathrooms,  <em>branchId</em>)</p>
         <p>propertyStatsKeywords(<strong><em>propertyId</em></strong>, <strong>keyword</strong>)</p>
         <p>propertyOpenHouse(<strong><em>propertyId</em></strong>, <strong>openHouseDate</strong>, openHouseTime)</p>
         <p>propertyOffersMade(<strong><em>propertyId</em></strong>, <strong>offerId</strong>, offerPrice, offerDate, acceptedOrRejected)</p>
@@ -342,7 +342,6 @@
           <tr><td>String propertyId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Char rentalOrSale</td><td>'r' for rental; 's' for sale</td></tr>
           <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominium, Townhomes, Manufactured, Lots}</td></tr>
-          <tr><td>String listingType</td><td>set list of listing types {rental, sale}</td></tr>
           <tr><td>Date adDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>Double adCost</td><td>ad cost represented as a dollar value (dollars.cents)</td></tr>
           <tr><td>String adPublication</td><td>publication or website name</td></tr>
