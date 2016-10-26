@@ -293,7 +293,7 @@
         <p>clientBuyerLocation(<strong><em>clientId</em></strong>, <strong>street</strong>, city, zipCode)</p>
         <p>clientPhone(<strong><em>clientId</em></strong>, <strong>phone</strong>)</p>
         <p>hasA(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
-        <p>branch(<strong>branch</strong>, location)</p>
+        <p>branch(<strong>branch</strong>, street, city, zipCode)</p>
 
         <table class="table table-responsive table-hover table-striped">
           <h4>StaffMember Types:</h4>
@@ -388,7 +388,6 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>client Types:</h4>
           <tr><td>String clientId</td><td>first character is letter 'c' (for client), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>String clientTypeId</td><td>first character is letter 't' (for type), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>String email</td><td>< 50 chars</td></tr>
           <tr><td>String name</td><td>< 100 chars</td></tr>
           <tr><td>String street</td><td>typically < 100 chars</td></tr>
@@ -399,11 +398,12 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>clientType Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
+          <tr><td>String clientTypeId</td><td>first character is letter 't' (for type), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Char ownerType</td><td>'s' for seller; 'r' for renter</td></tr>
           <tr><td>String rentalContract</td><td><10000 chars </td></tr>
           <tr><td>String amenities</td><td>< 1000 chars part of buyer client type</td></tr>
-          <tr><td>Double maxPrice</td><td>part of price range; dollar value (dollar.cents)</td></tr>
           <tr><td>Double minPrice</td><td> part of price range; dollar value (dollar.cents)</td></tr>
+          <tr><td>Double maxPrice</td><td>part of price range; dollar value (dollar.cents)</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
