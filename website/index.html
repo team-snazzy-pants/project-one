@@ -280,8 +280,8 @@
         <p>staffMember(<strong>StaffId</strong>, Name, Email, rating, salary, <em>branchId</em>)</p>
         <p>staffPhone(<strong><em>StaffId</em></strong>, <strong>phone</strong>)</p>
         <p>staffAddress(<strong><em>StaffId</em></strong>, <strong>street</strong>, city, zipCode)</p>
-        <p>sellingAgent<strong><em>StaffId</em></strong>, sellingAgentCommission)</p>
-        <p>listingAgent<strong><em>StaffId</em></strong>, listingAgentCommission)</p>
+        <p>sellingAgent(<strong><em>StaffId</em></strong>, sellingAgentCommission)</p>
+        <p>listingAgent(<strong><em>StaffId</em></strong>, listingAgentCommission)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
         <p>property(<strong>propertyId</strong>, rentalOrSale, propertyType, adDate, adCost, adPublication, street, city, zipCode, listingPrice, listingDate, hoaCost, onSiteParking, numBedrooms, numBathrooms,  <em>branchId</em>)</p>
         <p>propertyStatsKeywords(<strong><em>propertyId</em></strong>, <strong>keyword</strong>)</p>
@@ -298,9 +298,9 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>StaffMember Types:</h4>
           <tr><td>String staffId</td><td>first character is letter 's' (for staff), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>String name</td><td>typically < 100 chars</td></tr>
-          <tr><td>String email</td><td>typically < 50 chars</td></tr>
-          <tr><td>Int rating</td><td>an integer between 1 and 5</td></tr>
+          <tr><td>String name</td><td><= 100 chars</td></tr>
+          <tr><td>String email</td><td><= 50 chars</td></tr>
+          <tr><td>Int rating</td><td>an integer from 1 and 5</td></tr>
           <tr><td>Double salary</td><td>a large number monetary value</td></tr>
           <tr><td>String branchId</td><td>refers to primary key in Branch</td></tr>
         </table>
@@ -314,8 +314,8 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>staffAddress Types:</h4>
           <tr><td>String staffId</td><td>refers to primary key in StaffMember</td></tr>
-          <tr><td>String street</td><td>typically < 100 chars</td></tr>
-          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>String street</td><td><= 100 chars</td></tr>
+          <tr><td>String city</td><td><= 25 chars</td></tr>
           <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
         </table>
 
@@ -345,8 +345,8 @@
           <tr><td>Date adDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>Double adCost</td><td>ad cost represented as a dollar value (dollars.cents)</td></tr>
           <tr><td>String adPublication</td><td>publication or website name</td></tr>
-          <tr><td>String street</td><td>typically < 100 chars</td></tr>
-          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>String street</td><td><= 100 chars</td></tr>
+          <tr><td>String city</td><td><= 25 chars</td></tr>
           <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
           <tr><td>Double listingPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
           <tr><td>Date listingDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
@@ -388,10 +388,10 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>client Types:</h4>
           <tr><td>String clientId</td><td>first character is letter 'c' (for client), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>String email</td><td>< 50 chars</td></tr>
-          <tr><td>String name</td><td>< 100 chars</td></tr>
-          <tr><td>String street</td><td>typically < 100 chars</td></tr>
-          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>String email</td><td><= 50 chars</td></tr>
+          <tr><td>String name</td><td><= 100 chars</td></tr>
+          <tr><td>String street</td><td><= 100 chars</td></tr>
+          <tr><td>String city</td><td><= 25 chars</td></tr>
           <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
         </table>
 
@@ -401,7 +401,7 @@
           <tr><td>String clientTypeId</td><td>first character is letter 't' (for type), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Char ownerType</td><td>'s' for seller; 'r' for renter</td></tr>
           <tr><td>String rentalContract</td><td><10000 chars </td></tr>
-          <tr><td>String amenities</td><td>< 1000 chars part of buyer client type</td></tr>
+          <tr><td>String amenities</td><td><= 1000 chars part of buyer client type</td></tr>
           <tr><td>Double minPrice</td><td> part of price range; dollar value (dollar.cents)</td></tr>
           <tr><td>Double maxPrice</td><td>part of price range; dollar value (dollar.cents)</td></tr>
         </table>
@@ -409,8 +409,8 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>clientBuyerLocation Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
-          <tr><td>String street</td><td>typically < 100 chars</td></tr>
-          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>String street</td><td><= 100 chars</td></tr>
+          <tr><td>String city</td><td><= 25 chars</td></tr>
           <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
         </table>
 
@@ -429,11 +429,11 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>branch Types:</h4>
           <tr><td>String branchId</td><td>first character is letter 'b' (for branch), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>String street</td><td>typically < 100 chars</td></tr>
-          <tr><td>String city</td><td>typically < 25 chars</td></tr>
+          <tr><td>String street</td><td><= 100 chars</td></tr>
+          <tr><td>String city</td><td><= 25 chars</td></tr>
           <tr><td>Int zipCode</td><td>integer representing 5 digit postal zip code (XXXXX)</td></tr>
         </table>
-        
+
       </div>
     </div>
 
