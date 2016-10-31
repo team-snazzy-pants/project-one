@@ -377,11 +377,13 @@
       <a href="relationalDiagram.png"><img src="relationalDiagram.png"></a>
       <ul>
         <li>We modeled N:M relationships with the relationship relation / cross-reference option.  We created a separate relation and used the primary keys of the entities modeled as foreign keys.</li>
-        <li>We modeled inheritance with staffMember and its child classes sellingAgent and listingAgent.  We created separate relations for the superclass and the two subclasses.</li>
+        <li>We modeled inheritance with StaffMember and its child classes sellingAgent and listingAgent.  We created separate relations for the superclass and the two subclasses.</li>
+        <li>We also modeled inheritance with client and its child classes buyer, renter and owner.  We created separate relations for the superclass and the three subclasses.</li>
         <li>We did not have any ternary relationships.</li>
         <li>We mapped multi-attribute attributes using a separate relation.  Each has a foreign key of its entity and a combined primary key of the foreign key plus an attribute of the multi-valued entity.</li>
         <li>There were no constraints that were represented in ER design, but could not be mapped to the relational design.</li>
-        <li>One design choice we made was to use inheritance to model staffMember.  This makes it easy to quickly understand the soldBy and listedBy relationships. Information gained by this design choice was commission attribute on each child class. This could be modeled more simply without inheritance, but it would be harder to quickly understand.</li>
+        <li>One design choice we made was to use inheritance to model StaffMember.  This makes it easy to quickly understand the soldBy and listedBy relationships for StaffMember. Information gained by this design choice was commission attribute on each child class. This could be modeled more simply without inheritance, but it would be harder to quickly understand.</li>
+        <li>Another design choice we made was to use inheritance to model Client.  This makes it easy to quickly understand the buyer, renter and owner subclasses. These could be modelled using attributes but this method is more clear</li>
       </ul>
     </div>
 
@@ -394,16 +396,18 @@
         <p>sellingAgent(<strong><em>StaffId</em></strong>, sellingAgentCommission)</p>
         <p>listingAgent(<strong><em>StaffId</em></strong>, listingAgentCommission)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-        <p>property(<strong>propertyId</strong>, rentalOrSale, propertyType, listingType, street, city, zipCode, listingPrice, listingDate, <em>branchId</em>)</p>
-        <p>propertyStats(<strong>statsId</strong>, hoaCost, onSiteParking, numBedrooms, numBathrooms, <em>propertyId</em>)</p>
-        <p>ad(<strong>adId</strong>, adDate, adCost, adPublication, <em>propertyId</em>)</p>
-        <p>openHouse(<strong>openHouseId</strong>, <strong>openHouseDate</strong>, openHouseTime, <em>propertyId</em>)</p>
-        <p>offer(<strong>offerId</strong>, offerPrice, offerDate, acceptedOrRejected, <em>propertyId</em>)</p>
+        <p>property(<strong>propertyId</strong>, rentalOrSale, propertyType, street, city, zipCode, listingPrice, listingDate, <em>branchId</em>)</p>
+        <p>advertisement(<strong>adId</strong>, adDate, adCost, adPublication, <em>propertyId</em>)</p>
+        <p>propertyStatistics(<strong>statsId</strong>, numBedrooms, hoaCost, numBathrooms, onSiteParking, yearBuilt, <em>propertyId</em>)</p>
+        <p>openHouse(<strong>openHouseId</strong>, <strong>openHouseDate</strong>, openHouseTime, adPublication, <em>propertyId</em>)</p>
+        <p>offersMade(<strong>offerId</strong>, offerDate, offerPrice, acceptedOrRejected, <em>propertyId</em>)</p>
         <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
         <p>client(<strong>clientId</strong>, email, name, street, city, zipCode)</p>
-        <p>clientType(<strong><em>clientId</em></strong>, <strong>clientTypeId</strong>, ownerType, rentalContract, amenities, minPrice, maxPrice)</p>
-        <p>clientBuyerLocation(<strong><em>clientId</em></strong>, <strong>street</strong>, city, zipCode)</p>
         <p>clientPhone(<strong><em>clientId</em></strong>, <strong>phone</strong>)</p>
+        <p>buyer(<strong><em>clientId</em></strong>, minPrice, maxPrice, amenities)</p>
+        <p>buyerLocation(<strong><em>clientId</em></strong>, <strong>street</strong>, city, zipCode)</p>
+        <p>renter(<strong><em>clientId</em></strong>, rentalContract)</p>
+        <p>owner(<strong><em>clientId</em></strong>, ownerType)</p>
         <p>hasA(<strong><em>clientId</em></strong>, <strong><em>branchId</em></strong>)</p>
         <p>branch(<strong>branch</strong>, street, city, zipCode)</p>
 
@@ -463,7 +467,7 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>ad Types:</h4>
+          <h4>Advertisement Types:</h4>
           <tr><td>String adId</td><td>first 2 characters are 'ad', rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Date adDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>Double adCost</td><td>ad cost represented as a dollar value (dollars.cents)</td></tr>
@@ -474,9 +478,10 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>propertyStats Types:</h4>
           <tr><td>String statsId</td><td>first 2 characters are 'st' (for stat), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>Double hoaCost</td><td>HOA cost represented as a monetary value (dollars.cents)</td></tr>
           <tr><td>Int numBedrooms</td><td>integer representing number of bedrooms on property; typically < 10</td></tr>
+          <tr><td>Double hoaCost</td><td>HOA cost represented as a monetary value (dollars.cents)</td></tr>
           <tr><td>Int numBathrooms</td><td>integer representing number of bathrooms on property; typically < 5</td></tr>
+          <tr><td>Bool onSiteParking</td><td>boolean representing whether there is onsite parking or not</td></tr>
           <tr><td>Int yearBuilt</td><td>4 digits indicating year property was built (if applicable)</td></tr>
           <tr><td>String propertyId</td><td>foreign key to propertyId</td></tr>
         </table>
@@ -486,14 +491,15 @@
           <tr><td>String openHouseId</td><td>first 2 characters are 'oh' (for open house), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Date openHouseDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>String openHouseTime</td><td>string in format XX:XX</td></tr>
+          <tr><td>String adPublication</td><td>publication or website name</td></tr>
           <tr><td>String propertyId</td><td>foreign key to propertyId</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>offer Types:</h4>
+          <h4>offersMade Types:</h4>
           <tr><td>String offerId</td><td>first 2 characters are 'of' (for offer), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>Double offerPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
           <tr><td>Date offerDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>Double offerPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
           <tr><td>String acceptedOrRejected</td><td>string value either {null, accepted, rejected}</td></tr>
           <tr><td>String propertyId</td><td>foreign key to propertyId</td></tr>
         </table>
@@ -515,14 +521,17 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>clientType Types:</h4>
+          <h4>clientPhone Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
-          <tr><td>String clientTypeId</td><td>first character is letter 't' (for type), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>Char ownerType</td><td>'s' for seller; 'r' for renter</td></tr>
-          <tr><td>String rentalContract</td><td><10000 chars </td></tr>
-          <tr><td>String amenities</td><td><= 1000 chars part of buyer client type</td></tr>
+          <tr><td>String phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>buyer Types:</h4>
+          <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
           <tr><td>Double minPrice</td><td> part of price range; dollar value (dollar.cents)</td></tr>
           <tr><td>Double maxPrice</td><td>part of price range; dollar value (dollar.cents)</td></tr>
+          <tr><td>String amenities</td><td><= 1000 chars listing amenities the buyer desires in a property</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
@@ -534,9 +543,15 @@
         </table>
 
         <table class="table table-responsive table-hover table-striped">
-          <h4>clientPhone Types:</h4>
+          <h4>renter Types:</h4>
           <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
-          <tr><td>String phone</td><td>twelve characters; format: XXX-XXX-XXXX</td></tr>
+          <tr><td>String rentalContract</td><td><10000 chars </td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>owner Types:</h4>
+          <tr><td>String clientId</td><td>refers to primary key in Client</td></tr>
+          <tr><td>Char ownerType</td><td>'s' for seller; 'r' for renter</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
