@@ -127,6 +127,10 @@
           <li>Client has partial participation between property for the has relationship because there can be clients who do not have a property.</li>
           <li>Both StaffMember and Property have partial participation in the listedBy relationship because we assume there could be staff members who don't list properties (like a teller) and also properties that aren't currently listed (like a brand new property or a property under renovations).</li>
           <li>There is <strong>total relationship</strong> for StaffMembers in the worksAt relation because all staff members work at a branch.  There is partial participation for Branch in the worksAt relation because a branch could be new or under construction and not have any StaffMembers.</li>
+          <li>There is a <strong>total relationship</strong> for advertised because all ads are for a property.</li>
+          <li>PropertyStats has a <strong>total relationship</strong> with property because every property has property stats and all property stats have their property.</li>
+          <li>OpenHouse has a <strong>total relationship</strong> with property because every open house is for a specific property</li>
+          <li>Offer has a <strong>total relationship</strong> with property because every offer is for a property.</li>
         </ul>
       </div>
     </div>
@@ -138,7 +142,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -164,7 +168,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -202,7 +206,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -217,6 +221,78 @@
       </div>
     </div>
 
+    <div id="entity-property" class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h2>ER Diagram - Ad Entity</h2>
+        <a href="entity_Property.png"><img src="entity_Ad.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h2>Business Constraints</h2>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>An ad cannot exist without a property</h5>
+        <ul class="no-list-style">
+          <li>Though somewhat obvious, it is an assumption of the business practice that every ad is for a certain property</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="entity-property" class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h2>ER Diagram - PropertyStats Entity</h2>
+        <a href="entity_Property.png"><img src="entity_PropertyStats.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h2>Business Constraints</h2>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>property stats cannot exist without a property and every property has property stats</h5>
+        <ul class="no-list-style">
+          <li>Though somewhat obvious, it is an assumption of the business practice that every property stat is for a certain property and that every property has its stats</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="entity-property" class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h2>ER Diagram - OpenHouse Entity</h2>
+        <a href="entity_Property.png"><img src="entity_OpenHouse.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h2>Business Constraints</h2>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes.  OpenHouse also includes openHouseDate as part of its primary key to provide more information quickly</li>
+        </ul>
+        <h5>An open house cannot exist without a property</h5>
+        <ul class="no-list-style">
+          <li>Though somewhat obvious, it is an assumption of the business practice that every open house is for a certain property</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="entity-property" class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h2>ER Diagram - Offer Entity</h2>
+        <a href="entity_Property.png"><img src="entity_Offer.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h2>Business Constraints</h2>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>An offer cannot exist without a property</h5>
+        <ul class="no-list-style">
+          <li>Though somewhat obvious, it is an assumption of the business practice that every offer is for a certain property</li>
+        </ul>
+      </div>
+    </div>
+
     <div id="entity-client" class="row container-fluid db-section">
       <div class="col-md-6">
         <h2>ER Diagram - Client Entity</h2>
@@ -224,7 +300,42 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember and Property) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>Clients MUST have one phone number but the database can accommodate multiple phone entries</h5>
+        <ul class="no-list-style">
+          <li>Ex. Cell, Work and the elusive Home phone number</li>
+        </ul>
+        <h5>Clients can have more than one Property and property type</h5>
+        <ul class="no-list-style">
+          <li>Clients can simultaneously be buying, selling or renting property at any given time</li>
+        </ul>
+        <h5>Email must be unique per Client (no shared accounts)</h5>
+        <ul class="no-list-style">
+          <li>Email will be used as a unique identified for login and query purposes</li>
+        </ul>
+        <h5>A Client cannot exist without an email address</h5>
+        <ul class="no-list-style">
+          <li>Email will be used as a unique identified for login and query purposes</li>
+        </ul>
+        <h5>Clients MUST have one phone number but the database can accommodate multiple phone entries</h5>
+        <ul class="no-list-style">
+          <li>Ex. Cell, Work and the elusive Home phone number</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div id="entity-client" class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h2>ER Diagram - Client Entity</h2>
+        <a href="entity_Client.png"><img src="entity_Client.png"></a>
+      </div>
+      <div class="col-md-6">
+        <h2>Business Constraints</h2>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
