@@ -131,6 +131,7 @@
           <li>PropertyStats has a <strong>total relationship</strong> with property because every property has property stats and all property stats have their property.</li>
           <li>OpenHouse has a <strong>total relationship</strong> with property because every open house is for a specific property</li>
           <li>Offer has a <strong>total relationship</strong> with property because every offer is for a property.</li>
+          <li>Listing has a <strong>total relationship</strong> with property because every listing is for a property.</li>
         </ul>
       </div>
     </div>
@@ -142,7 +143,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -168,7 +169,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -201,12 +202,11 @@
         <p><strong>Details & Clarification:</strong></p>
         <ul>
           <li>propertyType is { House, Apt, Townhome, Condo, Manufactured, Lot }</p>
-          <li>listingType is { rental, sale }</li>
         </ul>
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -228,7 +228,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -246,7 +246,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -264,7 +264,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes.  OpenHouse also includes openHouseDate as part of its primary key to provide more information quickly</li>
         </ul>
@@ -282,13 +282,35 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
         <h5>An offer cannot exist without a property</h5>
         <ul class="no-list-style">
           <li>Though somewhat obvious, it is an assumption of the business practice that every offer is for a certain property</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="entity-property" class="row container-fluid db-section">
+      <div class="col-md-6">
+        <h2>ER Diagram - Listing Entity</h2>
+        <a href="entity_Property.png"><img src="entity_Listing.png"></a>
+        <p><strong>Details & Clarification:</strong></p>
+        <ul>
+          <li>rentalOrSale is { rental, sale }</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h2>Business Constraints</h2>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
+        <ul class="no-list-style">
+          <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
+        </ul>
+        <h5>A property can be listed for both rental and sale</h5>
+        <ul class="no-list-style">
+          <li>A property can be listed for rental, sale or both rental and sale</li>
         </ul>
       </div>
     </div>
@@ -300,7 +322,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -335,7 +357,7 @@
       </div>
       <div class="col-md-6">
         <h2>Business Constraints</h2>
-        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse and Offer) must have a unique integer-based ID</h5>
+        <h5>Every entity (Client, Branch, StaffMember, Property, Ad, PropertyStats, OpenHouse, Offer and Listing) must have a unique integer-based ID</h5>
         <ul class="no-list-style">
           <li>The ID is used to create relationships between entities and relationships as well as for identification purposes</li>
         </ul>
@@ -396,11 +418,12 @@
         <p>sellingAgent(<strong><em>StaffId</em></strong>, sellingAgentCommission)</p>
         <p>listingAgent(<strong><em>StaffId</em></strong>, listingAgentCommission)</p>
         <p>listedBy(<strong><em>StaffId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
-        <p>property(<strong>propertyId</strong>, rentalOrSale, propertyType, street, city, zipCode, listingPrice, listingDate, <em>branchId</em>)</p>
+        <p>property(<strong>propertyId</strong>, propertyType, street, city, zipCode, <em>branchId</em>)</p>
         <p>advertisement(<strong>adId</strong>, adDate, adCost, adPublication, <em>propertyId</em>)</p>
         <p>propertyStatistics(<strong>statsId</strong>, numBedrooms, hoaCost, numBathrooms, onSiteParking, yearBuilt, <em>propertyId</em>)</p>
         <p>openHouse(<strong>openHouseId</strong>, <strong>openHouseDate</strong>, openHouseTime, adPublication, <em>propertyId</em>)</p>
         <p>offersMade(<strong>offerId</strong>, offerDate, offerPrice, acceptedOrRejected, <em>propertyId</em>)</p>
+        <p>listing(<strong>listingId</strong>, listingPrice, listingDate, rentalOrSale, <em>propertyId</em>)</p>
         <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
         <p>client(<strong>clientId</strong>, email, name, street, city, zipCode)</p>
         <p>clientPhone(<strong><em>clientId</em></strong>, <strong>phone</strong>)</p>
@@ -456,7 +479,7 @@
         <table class="table table-responsive table-hover table-striped">
           <h4>Property Types:</h4>
           <tr><td>String propertyId</td><td>first character is letter 'p' (for property), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>Char rentalOrSale</td><td>'r' for rental; 's' for sale</td></tr>
+          <tr><td>Char rentalOrSale</td><td>'r' for rental; 's' for sale; 'rs' for both</td></tr>
           <tr><td>String propertyType</td><td>set list of property types {House, Apartments, Condominium, Townhomes, Manufactured, Lots}</td></tr>
           <tr><td>String street</td><td>typically < 100 chars</td></tr>
           <tr><td>String city</td><td>typically < 25 chars</td></tr>
@@ -501,6 +524,15 @@
           <tr><td>Date offerDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
           <tr><td>Double offerPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
           <tr><td>String acceptedOrRejected</td><td>string value either {null, accepted, rejected}</td></tr>
+          <tr><td>String propertyId</td><td>foreign key to propertyId</td></tr>
+        </table>
+
+        <table class="table table-responsive table-hover table-striped">
+          <h4>listing Types:</h4>
+          <tr><td>String listingId</td><td>first characters is 'l' (for listing), rest of characters are numbers (ten characters)</td></tr>
+          <tr><td>Double listingPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
+          <tr><td>Date listingDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+          <tr><td>Char rentalOrSale</td><td>'r' for rental; 's' for sale; 'rs' for both</td></tr>
           <tr><td>String propertyId</td><td>foreign key to propertyId</td></tr>
         </table>
 
