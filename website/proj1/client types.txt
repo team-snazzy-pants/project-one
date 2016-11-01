@@ -1,0 +1,21 @@
+ <table class="table table-responsive table-hover table-striped">
+<h4>Client Attributes:</h4>
+           <tr><td>String clientId</td><td>first character is letter 'c' (for client), rest of characters are numbers (ten characters)</td></tr>
+-          <tr><td>Contact Info</td><td>composite attribute composed of the following</td></tr>
+-          <tr><td>String Email</td><td> < 50 chars</td></tr>
+-          <tr><td>String Name</td><td> < 100 chars</td></tr>
+-          <tr><td>String Address</td><td> < 100 chars</td></tr>
+-          <tr><td>String Phone#</td><td> 10 chars multi value attribute last attribute for contact info</td></tr>
+-          <tr><td>Char Client Type</td><td>'r' for renter 's' for seller 'b' for buyer composite attribute</td></tr>
+-          <tr><td>Buyer</td><td> composite attribute </td></tr>
+-		   <tr><td>String Amenities</td><td> < 1000 chars part of buyer client type</td></tr>
+-          <tr><td>String Loocation</td><td> < 100 chars multivalue attribute </td></tr>
+-          <tr><td>Price Range</td><td> composite attribute </td></tr>
+-          <tr><td>Int minPrice</td><td> part of price range </td></tr>
+-          <tr><td>Int maxPrice</td><td> part of price range</td></tr>
+-          <tr><td>Renter</td><td> composite attribute with one subattribute</td></tr>
+-          <tr><td>String Rental Agreement</td><td> <10,000 chars </td></tr>
++          <tr><td>Owner</td><td> composite attribute with one sub attribute</td></tr>
++          <tr><td>Char Owner Type</td><td>'s' for seller 'r' for renter</td></tr>
++   
+         </table>
