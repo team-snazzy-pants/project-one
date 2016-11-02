@@ -423,8 +423,7 @@
         <p>propertyStatistics(<strong>statsId</strong>, numBedrooms, hoaCost, numBathrooms, onSiteParking, yearBuilt, <em>propertyId</em>)</p>
         <p>openHouse(<strong>openHouseId</strong>, <strong>openHouseDate</strong>, openHouseTime, adPublication, <em>propertyId</em>)</p>
         <p>offersMade(<strong>offerId</strong>, offerDate, offerPrice, acceptedOrRejected, <em>propertyId</em>)</p>
-        <p>listing(<strong>listingId</strong>, listingPrice, listingDate, <em>propertyId</em>)</p>
-        <p>listingRentalOrSale(<strong><em>listingId</em></strong>, rentalOrSale)</p>
+        <p>listing(<strong>listingId</strong>, listingPrice, listingDate, rental, sale, <em>propertyId</em>)</p>
         <p>owns(<strong><em>clientId</em></strong>, <strong><em>PropertyId</em></strong>)</p>
         <p>client(<strong>clientId</strong>, email, name, street, city, zipCode)</p>
         <p>clientPhone(<strong><em>clientId</em></strong>, <strong>phone</strong>)</p>
@@ -530,13 +529,9 @@
           <tr><td>String listingId</td><td>first characters is 'l' (for listing), rest of characters are numbers (ten characters)</td></tr>
           <tr><td>Double listingPrice</td><td>listing price as a monetary value (dollars.cents)</td></tr>
           <tr><td>Date listingDate</td><td>ISO Date (YYYY-MM-DD)</td></tr>
+					<tr><td>Char rental</td><td>'y' for rental 'n' otherwise</td></tr>
+					<tr><td>Char sale</td><td>'y' for sale 'n' otherwise</td></tr>
           <tr><td>String propertyId</td><td>foreign key to propertyId</td></tr>
-        </table>
-
-        <table class="table table-responsive table-hover table-striped">
-          <h4>listingRentalOrSale Types:</h4>
-          <tr><td>String listingId</td><td>first characters is 'l' (for listing), rest of characters are numbers (ten characters)</td></tr>
-          <tr><td>Char rentalOrSale</td><td>'r' for rental; 's' for sale;</td></tr>
         </table>
 
         <table class="table table-responsive table-hover table-striped">
